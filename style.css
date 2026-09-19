@@ -20,12 +20,12 @@
   --accent-soft: #e3f2ec;
   --shadow: 0 1px 2px rgba(23, 30, 40, 0.06), 0 6px 20px rgba(23, 30, 40, 0.05);
 
-  --risk-low: #2f8f5f;
-  --risk-low-bg: #e5f4ec;
-  --risk-mid: #b5791f;
-  --risk-mid-bg: #fbf0dd;
-  --risk-high: #b8422f;
-  --risk-high-bg: #fbe7e3;
+  --risk-low: #15a349;
+  --risk-low-bg: #dbf3e2;
+  --risk-mid: #d9790a;
+  --risk-mid-bg: #fbecd2;
+  --risk-high: #dc2b2b;
+  --risk-high-bg: #fbdad7;
 
   --cat-blue: #3b6fa0;
   --cat-blue-bg: #e6eef6;
@@ -60,12 +60,12 @@
   --accent-soft: #16332a;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
 
-  --risk-low: #4fb591;
-  --risk-low-bg: #16332a;
-  --risk-mid: #d4a24b;
-  --risk-mid-bg: #362a14;
-  --risk-high: #dd7a68;
-  --risk-high-bg: #3a1c17;
+  --risk-low: #3ddb82;
+  --risk-low-bg: #12321f;
+  --risk-mid: #f5a324;
+  --risk-mid-bg: #3a2a10;
+  --risk-high: #f34f42;
+  --risk-high-bg: #3d1a16;
 
   --cat-blue: #7aa8d6;
   --cat-blue-bg: #1b2836;
@@ -95,12 +95,12 @@
     --accent-text: #072019;
     --accent-soft: #16332a;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
-    --risk-low: #4fb591;
-    --risk-low-bg: #16332a;
-    --risk-mid: #d4a24b;
-    --risk-mid-bg: #362a14;
-    --risk-high: #dd7a68;
-    --risk-high-bg: #3a1c17;
+    --risk-low: #3ddb82;
+    --risk-low-bg: #12321f;
+    --risk-mid: #f5a324;
+    --risk-mid-bg: #3a2a10;
+    --risk-high: #f34f42;
+    --risk-high-bg: #3d1a16;
     --cat-blue: #7aa8d6;
     --cat-blue-bg: #1b2836;
     --cat-purple: #ab9bd6;
@@ -277,9 +277,9 @@ button {
 }
 
 .chip .dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2.5px;
   flex: 0 0 auto;
 }
 
@@ -325,8 +325,8 @@ button {
 }
 
 .legend-dot {
-  width: 7px;
-  height: 7px;
+  width: 9px;
+  height: 9px;
   border-radius: 999px;
   flex: 0 0 auto;
 }
@@ -352,9 +352,9 @@ button {
 }
 
 .category-head .dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
   flex: 0 0 auto;
 }
 
@@ -425,10 +425,11 @@ button {
 }
 
 .drug-row .risk-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 999px;
   flex: 0 0 auto;
+  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 16%, transparent);
 }
 
 .drug-row .chevron-r {

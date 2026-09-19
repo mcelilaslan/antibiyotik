@@ -169,7 +169,7 @@
           '<p class="name">' + escapeHtml(d.etken) + "</p>" +
           '<p class="brand">' + escapeHtml(d.pazar) + "</p>" +
           "</span>" +
-          '<span class="risk-dot" title="Nefrotoksisite: ' + escapeHtml(d.nefroSeviye) + '" style="background:var(--risk-' + riskClass + ')"></span>' +
+          '<span class="risk-dot" title="Nefrotoksisite: ' + escapeHtml(d.nefroSeviye) + '" style="background:var(--risk-' + riskClass + ');color:var(--risk-' + riskClass + ')"></span>' +
           '<svg class="chevron-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>' +
           "</button>"
         );
