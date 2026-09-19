@@ -10,7 +10,7 @@ const DRUG_DATA = [
     "etken": "Piperasilin-Tazobaktam",
     "pazar": "Tazocin, Pipraks",
     "ozellikler": "Geniş spektrum; Gram-pozitifler, Gram-negatifler (Pseudomonas dahil) ve anaeroblar.",
-    "endikasyon": "HAP/VAP, intraabdominal enfeksiyonlar, dikiş sızıntıları, komplike İYE.",
+    "endikasyon": "HAP/VAP, intraabdominal enfeksiyonlar, anastomoz kaçağı, komplike İYE.",
     "standartDoz": "Düşük/Standart Doz: 3.375 g q6h IV (Komplike İYE, pelvik enfeksiyonlar, hafif intraabdominal)\nYüksek Doz: 4.5 g q6h IV (HAP/VAP, febril nötropeni, ağır sepsis, Pseudomonas şüphesi)\n(Her iki doz için de 4 saatlik uzatılmış infüzyon PK/PD hedefini artırır)",
     "renalDoz": "CrCl >40: Doz ayarı gerekmez.\nCrCl 20-40: 3.375 g q6h veya 4.5 g q8h IV.\nCrCl <20: 2.25 g q6h veya 3.375 g q8h IV.\nHD/CRRT: 2.25 g q8h veya 3.375 g q12h IV.",
     "sinirlamalar": "ESBL üreten suşlara karşı monoterapi olarak güvensiz olabilir; MRSA, VRE ve atipik bakterilere etkisizdir.",
