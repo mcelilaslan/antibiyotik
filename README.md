@@ -1,6 +1,6 @@
 # YBÜ Antibiyotik Rehberi
 
-mcelilaslan.github.io/antibiyotik
+https://mcelilaslan.github.io/antibiyotik
 
 Hızlı erişim için mobil öncelikli, statik bir antibiyotik referans sitesi.
 
