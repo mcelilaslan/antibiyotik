@@ -200,6 +200,24 @@ const DRUG_DATA = [
     "eliminasyon": "Renal (Aktif ilaç böbrekten, inaktif CMS böbrek dışı)"
   },
   {
+    "slug": "polimiksin-b",
+    "kategori": "POLİMİKSİNLER / AMİNOGLİKOZİTLER / TİGESİKLİN",
+    "kategoriKisa": "Polimiksin / Aminoglikozit / Tigesiklin",
+    "kategoriRenk": "amber",
+    "grup": "Polimiksin",
+    "etken": "Polimiksin B",
+    "pazar": "Standart ticari adı belirtilmemiştir",
+    "ozellikler": "MDR/XDR Gram-negatifler (CRAB, CRPA, KPC/OXA-48/NDM üreten Enterobacteriaceae); LPS/Lipid A'ya bağlanıp membranı bozar, dolaşımdaki endotoksini de nötralize eder. Kolistin'in aksine doğrudan aktif madde olarak verilir (ön-ilaç değildir), infüzyon biter bitmez pik yapar.",
+    "endikasyon": "HAP/VAP, bakteriyemi/sepsis, komplike intraabdominal enfeksiyonlar; SSS enfeksiyonunda intratekal/intraventriküler; septik şokta hemoperfüzyon (Toraymyxin). Direnç gelişimini önlemek için genelde kombinasyon (yüksek doz Meropenem, Fosfomisin, Tigesiklin veya Rifampisin ile) tercih edilir.",
+    "standartDoz": "Düşük/Standart Doz: 2.0-2.5 mg/kg (20.000-25.000 IU/kg) IV Yükleme (1 saatte)\nYüksek Doz: 1.25-1.5 mg/kg (12.500-15.000 IU/kg) q12h IV İdame (günlük toplam 2.5-3 mg/kg)",
+    "renalDoz": "CrCl/HD/CRRT: Doz ayarı GEREKMEZ — idame dozu TBW ile aynı kalır (güncel konsensüs: Tsuji 2019 / IDSA / ESCMID / SCCM).\nNot: Böbrek yetmezliğinde doz düşürmek subterapötik düzeye ve direnç gelişimine yol açar; Polimiksin B ağırlıklı olarak böbrek dışı yolla elimine edildiği için klirens değişmez.\nKlasik tablo (artık önerilmiyor): CrCl >50: 1-1.25 mg/kg q12h; CrCl 20-50: 1 mg/kg q12h; CrCl 5-19: 0.5 mg/kg q12h; CrCl <5: 0.2 mg/kg q12h; CRRT: 0.5 mg/kg q12h.",
+    "sinirlamalar": "Proteus spp., Serratia marcescens, Morganella morganii, Providencia spp., Burkholderia cepacia, tüm Gram-pozitifler ve anaeroblar doğal dirençlidir. İdrar yolu enfeksiyonunda (sistit/piyelonefrit) KULLANILMAZ — aktif ilaç idrarla neredeyse hiç atılmaz; İYE'de bunun yerine Kolistin tercih edilir.",
+    "yanEtki": "Nöromüsküler blokaj (dirençli kas güçsüzlüğü, akut apne riski; Myastenia Gravis'te kontrendike), parestezi (yüz/ekstremitede, ~%27), baş-boyunda geri dönüşlü hiperpigmentasyon.",
+    "nefroSeviye": "Orta",
+    "nefroNot": "Css,avg >2 mg/L üzerinde ATN riski artar, genellikle geri dönüşlüdür; Kolistin'e göre belirgin şekilde daha az nefrotoksik kabul edilir.",
+    "eliminasyon": "Esas olarak böbrek dışı (non-renal, hepatik/doku) metabolizma; idrarda değişmeden atılan aktif ilaç <%1 — renal fonksiyon ve diyalizden etkilenmez."
+  },
+  {
     "slug": "amikasin",
     "kategori": "POLİMİKSİNLER / AMİNOGLİKOZİTLER / TİGESİKLİN",
     "kategoriKisa": "Polimiksin / Aminoglikozit / Tigesiklin",
