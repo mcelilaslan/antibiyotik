@@ -37,6 +37,8 @@
   --cat-green-bg: #e4f3ea;
   --cat-rose: #a94a5c;
   --cat-rose-bg: #f6e5e9;
+  --cat-teal: #2b8a8a;
+  --cat-teal-bg: #e1f0f0;
 
   --radius-s: 8px;
   --radius-m: 12px;
@@ -77,6 +79,8 @@
   --cat-green-bg: #16301f;
   --cat-rose: #cf8797;
   --cat-rose-bg: #331d23;
+  --cat-teal: #4fb0b0;
+  --cat-teal-bg: #11302e;
   color-scheme: dark;
 }
 
@@ -111,6 +115,8 @@
     --cat-green-bg: #16301f;
     --cat-rose: #cf8797;
     --cat-rose-bg: #331d23;
+    --cat-teal: #4fb0b0;
+    --cat-teal-bg: #11302e;
     color-scheme: dark;
   }
 }
