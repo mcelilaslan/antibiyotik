@@ -3,7 +3,7 @@
 // açıldıktan sonra internet olmadan da (örn. hastane bodrumunda sinyal
 // yokken) kullanılabilir.
 
-const CACHE_NAME = "ybu-antibiyotik-v2";
+const CACHE_NAME = "ybu-antibiyotik-v3";
 
 const CORE_ASSETS = [
   "./",
