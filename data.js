@@ -17,7 +17,17 @@ const DRUG_DATA = [
     "yanEtki": "Aşırı duyarlılık, lökopeni, trombositopeni (özellikle uzun süreli kullanımda). Sodyum yükü: her 4.5 g'lık flakon 9.2 mEq (212 mg) sodyum içerir; hipernatremi veya oligürik kalp yetmezliğinde toplam sodyum yükü hesaba katılmalıdır.",
     "nefroSeviye": "Orta",
     "nefroNot": "Vankomisin ile sinerjik hasar! Yüksek renal risk taşıyan septik hastada Vankomisin + Sefepim veya Vankomisin + Meropenem tercih edilir.",
-    "eliminasyon": "Renal (%70 oranında idrarla değişmeden atılır)"
+    "eliminasyon": "Renal (%70 oranında idrarla değişmeden atılır)",
+    "sinerji": [
+      {
+        "kombinasyon": "Pip-Tazo (4.5 g q6h) + Amikasin / Tobramisin veya Siprofloksasin / Levofloksasin",
+        "not": "Dirençli ve nekrotizan Pseudomonas VAP'ta çift kapsama; bakteriyel yükü hızla kırar (tazobaktamın Pseudomonas'a katkısı yok)."
+      },
+      {
+        "kombinasyon": "Pip-Tazo + Tigesiklin",
+        "not": "Ağır intraabdominal sepsiste karbapenem-koruyucu rejim."
+      }
+    ]
   },
   {
     "slug": "sefepim",
@@ -35,7 +45,13 @@ const DRUG_DATA = [
     "yanEtki": "Sefepim Ensefalopatisi (ajitasyon, miyoklonus, NCSE), ilaç ateşi. Doz ayarı yapılmayan renal yetmezlikte (CrCl <60) kan-beyin bariyerini geçip SSS'de birikir, GABA-A reseptörlerini antagonize eder; EEG'de trifazik dalgalarla seyreden NCSE yapabilir. Bilinç değişikliğinde ilaç derhal kesilmeli ve acil EEG çekilmelidir.",
     "nefroSeviye": "Düşük",
     "nefroNot": "Renal birikimde nörotoksiktir",
-    "eliminasyon": "Renal (Böbrek tübüler sekresyonuyla atılır)"
+    "eliminasyon": "Renal (Böbrek tübüler sekresyonuyla atılır)",
+    "sinerji": [
+      {
+        "kombinasyon": "Sefepim + Amikasin veya Levofloksasin",
+        "not": "DTR Pseudomonas VAP ve nekrotizan nozokomiyal pnömonide ilk 3-5 gün erken bakteriyel yükü azaltır."
+      }
+    ]
   },
   {
     "slug": "seftazidim-avibaktam",
@@ -53,7 +69,17 @@ const DRUG_DATA = [
     "yanEtki": "Coombs testi pozitifliği, baş ağrısı, gastrointestinal intolerans.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Renal (İdrarla değişmeden atılır)"
+    "eliminasyon": "Renal (İdrarla değişmeden atılır)",
+    "sinerji": [
+      {
+        "kombinasyon": "CAZ-AVI + Aztreonam",
+        "not": "MBL (NDM, VIM) üreten Enterobacteriaceae'da tercih. MBL aztreonamı parçalayamaz; avibaktam aynı bakterideki ESBL/AmpC'yi bloke eder, aztreonam bakteriyi öldürür."
+      },
+      {
+        "kombinasyon": "CAZ-AVI + Metronidazol",
+        "not": "İntraabdominal enfeksiyonda zorunlu; avibaktamın anaerop etkisi yok."
+      }
+    ]
   },
   {
     "slug": "sefoperazon-sulbaktam",
@@ -71,7 +97,17 @@ const DRUG_DATA = [
     "yanEtki": "Disülfiram benzeri reaksiyon (alkol ile), hipoprothrombinemi (K vitamini eksikliğiyle kanama eğilimi). Hipoprotrombinemi mekanizması: sefoperazondaki NMTT halkası K vitamini epoksit redüktazı inhibe eder (PT/INR uzaması, kanama); uzun süreli YBÜ kullanımında haftalık IV K vitamini desteği verilmelidir.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Dual (%70 Safra/Karaciğer, %30 Böbrekler)"
+    "eliminasyon": "Dual (%70 Safra/Karaciğer, %30 Böbrekler)",
+    "sinerji": [
+      {
+        "kombinasyon": "Sef-Sulbaktam + Kolistin (veya Polimiksin B)",
+        "not": "CRAB'da tercih. Sulbaktam A. baumannii PBP1/PBP3'e bağlanıp bakterisidal etki yapar; polimiksin dış zarı parçalar."
+      },
+      {
+        "kombinasyon": "Sef-Sulbaktam + Yüksek doz Tigesiklin",
+        "not": "CRAB'da hücre duvarı + 30S ribozom blokajı; mortaliteyi düşürür."
+      }
+    ]
   },
   {
     "slug": "meropenem",
@@ -89,7 +125,21 @@ const DRUG_DATA = [
     "yanEtki": "Nöbet eşiğini düşürme (İmipeneme göre belirgin az), döküntü, trombositopeni. Valproik asit etkileşimi: valproat düzeyini 24-48 saatte %60-90 düşürerek dirençli status epileptikusu tetikleyebilir; kaçınılamıyorsa antiepileptik değiştirilmelidir (örn. levetirasetam).",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Renal (%70 glomerüler filtrasyonla değişmeden)"
+    "eliminasyon": "Renal (%70 glomerüler filtrasyonla değişmeden)",
+    "sinerji": [
+      {
+        "kombinasyon": "Meropenem + Vaborbaktam",
+        "not": "KPC üreten suşlarda tercih. Vaborbaktam Sınıf A inhibitörüdür, meropenemin MİK'ini belirgin düşürür."
+      },
+      {
+        "kombinasyon": "Meropenem + Ertapenem (çift karbapenem)",
+        "not": "KPC'de tercih. Ertapenem karbapenemaza bağlanıp yem olur, yüksek doz meropenem bakteriyi öldürür."
+      },
+      {
+        "kombinasyon": "Yüksek doz Meropenem (2 g q8h, 3-4 saat infüzyon) + Kolistin veya Amikasin",
+        "not": "Sınırda MİK (≤8-16 mcg/mL) suşlarda klinik yanıtı artırır."
+      }
+    ]
   },
   {
     "slug": "imipenem-silastatin",
@@ -107,7 +157,13 @@ const DRUG_DATA = [
     "yanEtki": "Yüksek nöbet riski (%0.9-3), bulantı, kusma (özellikle hızlı infüzyonda).",
     "nefroSeviye": "Düşük-Orta",
     "nefroNot": "Silastatin renal proksimal tübülleri korur",
-    "eliminasyon": "Renal (%70 oranında böbreklerden süzülür)"
+    "eliminasyon": "Renal (%70 oranında böbreklerden süzülür)",
+    "sinerji": [
+      {
+        "kombinasyon": "İmipenem + Kolistin veya yüksek doz Ampisilin-Sulbaktam",
+        "not": "CRAB ve CRE olgularında tercih edilir."
+      }
+    ]
   },
   {
     "slug": "vankomisin",
@@ -125,7 +181,17 @@ const DRUG_DATA = [
     "yanEtki": "Nefrotoksisite (doz ve süre bağımlı), Red Man Sendromu (hızlı infüzyonda), lökopeni. Red Man Sendromu'nu önlemek için infüzyon süresi en az 60-120 dakika olmalıdır; ototoksisite de görülebilir.",
     "nefroSeviye": "Yüksek",
     "nefroNot": "Çukur düzeyi >20 mcg/mL ise hasar katlanır",
-    "eliminasyon": "Renal (%80-90 glomerüler filtrasyonla idrardan)"
+    "eliminasyon": "Renal (%80-90 glomerüler filtrasyonla idrardan)",
+    "sinerji": [
+      {
+        "kombinasyon": "Vankomisin + Gentamisin / Streptomisin",
+        "not": "Enterokokta tercih. Vankomisin hücre duvarını bozar, aminoglikozit içeri girip bakterisidal klerens sağlar."
+      },
+      {
+        "kombinasyon": "Vankomisin + Rifampisin + Gentamisin",
+        "not": "Biyofilm ve protez kapak endokarditinde; rifampisin biyofilme penetre olur, gentamisin ilk 2 hafta."
+      }
+    ]
   },
   {
     "slug": "teikoplanin",
@@ -143,7 +209,17 @@ const DRUG_DATA = [
     "yanEtki": "Trombositopeni (özellikle yüksek dozlarda), aşırı duyarlılık (ilaç ateşi), döküntü, geçici karaciğer enzim yüksekliği.",
     "nefroSeviye": "Düşük",
     "nefroNot": "Vankomisine göre belirgin derecede daha az nefrotoksiktir",
-    "eliminasyon": "Renal (%90'ı değişmeden idrarla atılır; eliminasyon yarı ömrü 100-150 saattir)"
+    "eliminasyon": "Renal (%90'ı değişmeden idrarla atılır; eliminasyon yarı ömrü 100-150 saattir)",
+    "sinerji": [
+      {
+        "kombinasyon": "Teikoplanin + Gentamisin",
+        "not": "Enterokokal endokarditte sinerjik öldürme (vankomisin gibi)."
+      },
+      {
+        "kombinasyon": "Teikoplanin + Rifampisin veya Fosfomisin",
+        "not": "Derin doku ve kemik enfeksiyonlarında; hücre içi ve biyofilm etkinliği."
+      }
+    ]
   },
   {
     "slug": "daptomisin",
@@ -161,7 +237,17 @@ const DRUG_DATA = [
     "yanEtki": "Miyopati (Kreatin Kinaz - CK takibi şarttır!), periferik nöropati, eozinofilik pnömoni. Haftalık CK takibi yapılmalı, CK normalin 5 katını aşarsa ilaç kesilmelidir; statinlerle birlikte kullanılmamalıdır. Rabdomiyoliz riski vardır.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Renal (%80 idrarla değişmeden atılır)"
+    "eliminasyon": "Renal (%80 idrarla değişmeden atılır)",
+    "sinerji": [
+      {
+        "kombinasyon": "Yüksek doz Daptomisin (10-12 mg/kg) + Seftarolin / Ampisilin / Oksasilin / Ertapenem",
+        "not": "Dirençli ve persistan MRSA bakteremisi ile VRE endokarditinde tercih. Beta-laktam membranın pozitif yükünü nötralize eder, daptomisin zara girer."
+      },
+      {
+        "kombinasyon": "Daptomisin + Fosfomisin",
+        "not": "Biyofilm ilişkili MRSA ve enterokok bakteremisinde; zar ve hücre duvarını birlikte yıkar."
+      }
+    ]
   },
   {
     "slug": "linezolid",
@@ -179,7 +265,17 @@ const DRUG_DATA = [
     "yanEtki": "Trombositopeni (özellikle >10-14 gün kullanımda), laktik asidoz, periferik/optik nöropati (uzun vadede), Serotonin Sendromu (SSRI ile). Zayıf, geri dönüşlü MAO inhibitörüdür: Serotonin Sendromu SSRI'ın yanı sıra SNRI, MAOI ve opioidlerle (fentanil, tramadol) da tetiklenir. Haftalık hemogram takibi zorunludur.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Hepatik dışı oksidasyon (%70) ve kısmen renal atılım."
+    "eliminasyon": "Hepatik dışı oksidasyon (%70) ve kısmen renal atılım.",
+    "sinerji": [
+      {
+        "kombinasyon": "Linezolid + Penisilin / Vankomisin",
+        "not": "Nekrotizan fasiit, miyozit ve toksik şokta (GAS, PVL+ CA-MRSA) tercih. Eagle etkisinde beta-laktam etkisizleşir; linezolid toksin sentezini hızla durdurur."
+      },
+      {
+        "kombinasyon": "Linezolid + Rifampisin",
+        "not": "Dirençli enterokok ve MRSA menenjitinde (kan-beyin bariyerini geçer)."
+      }
+    ]
   },
   {
     "slug": "kolistin",
@@ -197,7 +293,25 @@ const DRUG_DATA = [
     "yanEtki": "Ağır nefrotoksisite (tübüler hasar), nöromüsküler blokaj (akut apne riski), paresteziler.",
     "nefroSeviye": "Yüksek",
     "nefroNot": "Ort. serum düzeyi >2 mg/L ise AKI fırlar",
-    "eliminasyon": "Renal (Aktif ilaç böbrekten, inaktif CMS böbrek dışı)"
+    "eliminasyon": "Renal (Aktif ilaç böbrekten, inaktif CMS böbrek dışı)",
+    "sinerji": [
+      {
+        "kombinasyon": "Kolistin + Meropenem",
+        "not": "MİK ≤8-16 mcg/mL olan CRE ve CRAB'da en klasik kombinasyon. (Kolistin LPS'yi bozup gözenek açar, diğer ajanlar içeri girer.)"
+      },
+      {
+        "kombinasyon": "Kolistin + Yüksek doz Tigesiklin",
+        "not": "Karbapenem dirençli Acinetobacter ve Klebsiella sepsisinde en sık rejim."
+      },
+      {
+        "kombinasyon": "Kolistin + Rifampisin",
+        "not": "In vitro en güçlü sinerjilerden; rifampisin RNA polimerazı kilitler."
+      },
+      {
+        "kombinasyon": "Kolistin + Fosfomisin",
+        "not": "Hücre duvarı sentezi erken durur, zar parçalanır."
+      }
+    ]
   },
   {
     "slug": "polimiksin-b",
@@ -215,7 +329,13 @@ const DRUG_DATA = [
     "yanEtki": "Nöromüsküler blokaj (dirençli kas güçsüzlüğü, akut apne riski; Myastenia Gravis'te kontrendike), parestezi (yüz/ekstremitede, ~%27), baş-boyunda geri dönüşlü hiperpigmentasyon.",
     "nefroSeviye": "Orta",
     "nefroNot": "Css,avg >2 mg/L üzerinde ATN riski artar, genellikle geri dönüşlüdür; Kolistin'e göre belirgin şekilde daha az nefrotoksik kabul edilir.",
-    "eliminasyon": "Esas olarak böbrek dışı (non-renal, hepatik/doku) metabolizma; idrarda değişmeden atılan aktif ilaç <%1 — renal fonksiyon ve diyalizden etkilenmez."
+    "eliminasyon": "Esas olarak böbrek dışı (non-renal, hepatik/doku) metabolizma; idrarda değişmeden atılan aktif ilaç <%1 — renal fonksiyon ve diyalizden etkilenmez.",
+    "sinerji": [
+      {
+        "kombinasyon": "Polimiksin B + Meropenem / Tigesiklin / Minosiklin / Amikasin",
+        "not": "CRE ve CRAB bakteremilerinde tercih; kolistinle aynı sinerji mekanizması, ön-ilaç değil ve kanda hızla kararlı düzeye ulaşır."
+      }
+    ]
   },
   {
     "slug": "amikasin",
@@ -233,7 +353,17 @@ const DRUG_DATA = [
     "yanEtki": "Nefrotoksisite (non-oligurik akut tübüler nekroz), irreversibl kohlear/vestibüler ototoksisite. Nöromüsküler blokaj yapabilir.",
     "nefroSeviye": "Yüksek",
     "nefroNot": "Çukur düzeyi >5-10 mcg/mL ise toksisite artar",
-    "eliminasyon": "Renal (%90-99 glomerüler filtrasyonla idrardan)"
+    "eliminasyon": "Renal (%90-99 glomerüler filtrasyonla idrardan)",
+    "sinerji": [
+      {
+        "kombinasyon": "Amikasin + Beta-laktam (Sefepim, Meropenem, Pip-Tazo)",
+        "not": "Beta-laktam hücre duvarını gevşetir, amikasinin hücreye girişi hızlanır (30S blokajı)."
+      },
+      {
+        "kombinasyon": "IV Amikasin + Nebulize Amikasin",
+        "not": "VAP'ta tercih; ELF'de binlerce kat yüksek konsantrasyon, sistemik toksisite olmadan."
+      }
+    ]
   },
   {
     "slug": "tigesiklin",
@@ -251,7 +381,21 @@ const DRUG_DATA = [
     "yanEtki": "Ciddi bulantı/kusma, koagülopati (hipofibrinojenemi, PT/aPTT uzaması), akut pankreatit (ölümcül olabilir). FDA siyah kutu uyarısı: klinik çalışmalarda tüm nedenlere bağlı mortalitede artış saptanmıştır.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Biliyer/fekal atılım (%59), kısmen renal (%33)."
+    "eliminasyon": "Biliyer/fekal atılım (%59), kısmen renal (%33).",
+    "sinerji": [
+      {
+        "kombinasyon": "Tigesiklin monoterapi yapılmaz",
+        "not": "Bakteriyostatik ve serum düzeyi düşük; bakteremik hastada monoterapi mortaliteyi artırır."
+      },
+      {
+        "kombinasyon": "Yüksek doz Tigesiklin + Kolistin (veya Polimiksin B)",
+        "not": "CRAB ve CRE için temel omurga."
+      },
+      {
+        "kombinasyon": "Tigesiklin + Yüksek doz Meropenem",
+        "not": "MBL ve KPC suşlarında."
+      }
+    ]
   },
   {
     "slug": "siprofloksasin",
@@ -269,7 +413,17 @@ const DRUG_DATA = [
     "yanEtki": "QTc uzaması / Torsades de Pointes, nöbet eşiğini düşürme, tendon rüptürü riskleri. Konfüzyon/delirium, aort diseksiyonu riskinde artış, myasthenia gravis alevlenmesi.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Böbrek (%40-50 idrarla), Kısmi Biliyer/Fekal"
+    "eliminasyon": "Böbrek (%40-50 idrarla), Kısmi Biliyer/Fekal",
+    "sinerji": [
+      {
+        "kombinasyon": "Sefepim veya Pip-Tazo + Siprofloksasin",
+        "not": "Ağır Pseudomonas pnömonisinde ilk günlerde; beta-laktam direnci ve heterodirenç gelişimini önler."
+      },
+      {
+        "kombinasyon": "Siprofloksasin + Rifampisin",
+        "not": "Stafilokok veya Pseudomonas biyofilminde (protez, yabancı cisim)."
+      }
+    ]
   },
   {
     "slug": "levofloksasin",
@@ -287,7 +441,13 @@ const DRUG_DATA = [
     "yanEtki": "QTc uzaması, nörogirişimsel bozukluklar (özellikle yaşlılarda konfüzyon/halüsinasyon), tendon hasarı. Aort diseksiyonu riskinde artış, myasthenia gravis alevlenmesi, nöbet eşiğinde düşme.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Renal (%85 idrarla değişmeden atılır)"
+    "eliminasyon": "Renal (%85 idrarla değişmeden atılır)",
+    "sinerji": [
+      {
+        "kombinasyon": "Seftriakson / Sefepim / Meropenem + Levofloksasin",
+        "not": "Ağır CAP ve VAP'ta; Legionella gibi hücre içi atipikleri kapsar ve klerensi hızlandırır."
+      }
+    ]
   },
   {
     "slug": "metronidazol",
@@ -305,7 +465,21 @@ const DRUG_DATA = [
     "yanEtki": "Periferik nöropati (uzun süreli kullanımda), metalik tat, disülfiram benzeri reaksiyon, nörotoksisite (konfüzyon, ensefalopati).",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Hepatik metabolizma (%60-80), renal (%60-80) ve fekal atılım."
+    "eliminasyon": "Hepatik metabolizma (%60-80), renal (%60-80) ve fekal atılım.",
+    "sinerji": [
+      {
+        "kombinasyon": "Seftazidim-Avibaktam + Metronidazol",
+        "not": "Komplike intraabdominal enfeksiyonda resmi onaylı kombinasyon (aerobları kapsamadığı için tek başına kullanılmaz)."
+      },
+      {
+        "kombinasyon": "Sefepim veya Levofloksasin + Metronidazol",
+        "not": "İntraabdominal sepsis ve aspirasyon pnömonisinde anaerop boşluğunu kapatır."
+      },
+      {
+        "kombinasyon": "Oral Vankomisin (500 mg q6h) + IV Metronidazol (500 mg q8h)",
+        "not": "Fulminan C. difficile kolitinde tercih; lümende vankomisin, bağırsak duvarı ve submukozada metronidazol."
+      }
+    ]
   },
   {
     "slug": "flukonazol",

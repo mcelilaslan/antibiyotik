@@ -198,6 +198,18 @@
     return DRUG_DATA.find(function (d) { return d.slug === slug; });
   }
 
+  function renderSynergy(list) {
+    if (!list || !list.length) return "";
+    return '<div class="section">' +
+      "<h3>Sinerji / kombinasyonlar</h3>" +
+      '<ul class="synergy-list">' +
+      list.map(function (x) {
+        return "<li><b>" + escapeHtml(x.kombinasyon) + "</b>" + escapeHtml(x.not) + "</li>";
+      }).join("") +
+      "</ul>" +
+      "</div>";
+  }
+
   function renderDetail(drug) {
     var riskClass = RISK_CLASS[drug.nefroSeviye] || "mid";
 
@@ -243,6 +255,8 @@
       "<h3>Etkisiz olduğu durumlar / sınırlamalar</h3>" +
       '<div class="limitation-box">' + escapeHtml(drug.sinirlamalar) + "</div>" +
       "</div>" +
+
+      renderSynergy(drug.sinerji) +
 
       '<div class="section">' +
       "<h3>En önemli yan etkiler</h3>" +
