@@ -287,7 +287,7 @@ const DRUG_DATA = [
     "pazar": "Colimycin, Colis",
     "ozellikler": "Dirençli Gram-negatifler (Pseudomonas, Acinetobacter, Klebsiella OXA-48/KPC). Prodrug (CMS) olarak verilir, vücutta aktif kolistine dönüşür. Dozlama mg CBA ile ifade edilmelidir: 1 MÜ ≈ 33 mg CBA ≈ 80 mg CMS; yükleme 300 mg CBA (≈9 MÜ).",
     "endikasyon": "Çoklu dirençli Gram-negatif sepsisleri, ventilatör ilişkili pnömoni (IV + inhaler).",
-    "standartDoz": "9 Milyon IU IV Yükleme, 12 saat sonra 2x4.5 Milyon IU IV İdame",
+    "standartDoz": "Yükleme: 9 Milyon IU IV (≈ 300 mg CBA ≈ 720 mg CMS)\nİdame (yüklemeden 12 saat sonra): 2 × 4.5 Milyon IU IV (her doz ≈ 150 mg CBA ≈ 360 mg CMS)",
     "renalDoz": "CrCl >50: 4.5 MIU q12h IV.\nCrCl 30-50: 3.5 MIU q12h IV.\nCrCl 10-29: 2.5 MIU q12h IV.\nCrCl <10: 1.5 - 2 MIU q12h IV.\nCRRT: 2.25 MIU q12h IV.",
     "sinirlamalar": "Proteus, Providencia, Serratia ve Gram-pozitif bakterilere karşı tamamen etkisizdir.",
     "yanEtki": "Ağır nefrotoksisite (tübüler hasar), nöromüsküler blokaj (akut apne riski), paresteziler.",

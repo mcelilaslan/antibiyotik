@@ -10,12 +10,37 @@
   var CACHE_TTL_MS = 10 * 60 * 1000;
   var SCAN_INTERVAL_MS = 800;
   var HAS_POPOVER = typeof HTMLElement !== "undefined" && "showPopover" in HTMLElement.prototype;
-  var NEFRO_COLORS = {
-    "Düşük": "#2e7d32",
-    "Düşük-Orta": "#9e9d24",
-    "Orta": "#ef6c00",
-    "Yüksek": "#c62828"
+  var THEME = {
+    header: "#1565c0",
+    risk: {
+      low: { fg: "#15a349", bg: "#dbf3e2" },
+      mid: { fg: "#d9790a", bg: "#fbecd2" },
+      high: { fg: "#dc2b2b", bg: "#fbdad7" }
+    },
+    riskClass: { "Düşük": "low", "Düşük-Orta": "mid", "Orta": "mid", "Yüksek": "high" },
+    good: "#15a349",
+    alert: "#c62828",
+    plainCaps: { ESCMID: true },
+    tones: {
+      plain: { bar: "#90a4ae", bg: "transparent", title: "#546e7a" },
+      dose: { bar: "#2e7d32", bg: "#eef7ee", title: "#2e7d32" },
+      renal: { bar: "#6a1b9a", bg: "#f6eefa", title: "#6a1b9a" },
+      warn: { bar: "#c62828", bg: "#fdeeed", title: "#c62828" },
+      synergy: { bar: "#1565c0", bg: "#eaf2fc", title: "#1565c0" },
+      adverse: { bar: "#ef6c00", bg: "#fff4e5", title: "#d9790a" }
+    }
   };
+
+  var SECTIONS = [
+    { key: "ozellikler", title: "Özellikler", tone: "plain", kind: "text" },
+    { key: "endikasyon", title: "Endikasyon", tone: "plain", kind: "text" },
+    { key: "standartDoz", title: "Standart Doz", tone: "dose", kind: "doses" },
+    { key: "renalDoz", title: "Renal Doz Ayarı", tone: "renal", kind: "rows" },
+    { key: "sinirlamalar", title: "Sınırlamalar", tone: "warn", kind: "text" },
+    { key: "sinerji", title: "Sinerji / Kombinasyonlar", tone: "synergy", kind: "synergy" },
+    { key: "yanEtki", title: "Yan Etki", tone: "adverse", kind: "text", nefroNote: true },
+    { key: "eliminasyon", title: "Eliminasyon", tone: "plain", kind: "text" }
+  ];
 
   var drugs = [];
   var index = [];
@@ -87,43 +112,97 @@
       .replace(/>/g, "&gt;");
   }
 
-  function multiline(text) {
-    return esc(text).replace(/\n/g, "<br>");
+  var EMPHASIS_RE = /(Doz ayarı (?:gerekmez|GEREKMEZ))|(^|[^A-Za-zÇĞİÖŞÜçğıöşü])([A-ZÇĞİÖŞÜ]{6,})(?![A-Za-zÇĞİÖŞÜçğıöşü])/g;
+
+  function rich(text) {
+    return esc(text)
+      .replace(EMPHASIS_RE, function (all, phrase, pre, caps) {
+        if (phrase) return '<b style="color:' + THEME.good + ';">' + phrase + "</b>";
+        if (THEME.plainCaps[caps]) return pre + caps;
+        var color = caps === "GEREKMEZ" ? THEME.good : THEME.alert;
+        return pre + '<b style="color:' + color + ';">' + caps + "</b>";
+      })
+      .replace(/\n/g, "<br>");
   }
 
-  function section(title, text) {
-    if (!text) return "";
-    return '<div style="margin:0 0 12px;">' +
-      '<div style="font-weight:700;color:#1565c0;margin-bottom:3px;">' + esc(title) + "</div>" +
-      "<div>" + multiline(text) + "</div>" +
-      "</div>";
+  function lines(text) {
+    return (text || "").split("\n").map(function (l) { return l.trim(); }).filter(Boolean);
   }
 
-  function synergySection(list) {
-    if (!list || !list.length) return "";
-    var items = list.map(function (item) {
-      return '<div style="margin:0 0 8px;padding:8px 10px;background:#eef3fb;border-radius:8px;">' +
-        '<div style="font-weight:700;">' + esc(item.kombinasyon) + "</div>" +
+  function splitLabel(line) {
+    var m = line.match(/^([^:]{2,40}):\s*(.+)$/);
+    return m ? { label: m[1], body: m[2] } : { label: null, body: line };
+  }
+
+  function riskColors(drug) {
+    return THEME.risk[THEME.riskClass[drug.nefroSeviye] || "mid"];
+  }
+
+  function textBody(text) {
+    return "<div>" + rich(text) + "</div>";
+  }
+
+  function dosesBody(text, tone) {
+    return lines(text).map(function (line) {
+      var part = splitLabel(line);
+      return '<div style="background:#fff;border:1px solid ' + tone.bar + '40;border-radius:8px;padding:7px 10px;margin:0 0 6px;">' +
+        (part.label ? '<div style="font-size:10.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:' + tone.title + ';margin-bottom:1px;">' + esc(part.label) + "</div>" : "") +
+        "<div>" + rich(part.body) + "</div>" +
+        "</div>";
+    }).join("");
+  }
+
+  function rowsBody(text, tone) {
+    return lines(text).map(function (line, i) {
+      var part = splitLabel(line);
+      var divider = i ? "border-top:1px solid " + tone.bar + "30;" : "";
+      if (!part.label) {
+        return '<div style="padding:6px 0;' + divider + '">' + rich(part.body) + "</div>";
+      }
+      return '<div style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;' + divider + '">' +
+        '<span style="flex:0 0 auto;max-width:45%;background:' + tone.bar + ';color:#fff;border-radius:6px;padding:1px 8px;font-weight:700;font-size:12px;">' + esc(part.label) + "</span>" +
+        '<span style="flex:1 1 auto;">' + rich(part.body) + "</span>" +
+        "</div>";
+    }).join("");
+  }
+
+  function synergyBody(list, tone) {
+    return list.map(function (item) {
+      return '<div style="background:#fff;border:1px solid ' + tone.bar + '40;border-radius:8px;padding:7px 10px;margin:0 0 6px;">' +
+        '<div style="font-weight:700;color:' + tone.title + ';">' + esc(item.kombinasyon) + "</div>" +
         "<div>" + esc(item.not) + "</div>" +
         "</div>";
     }).join("");
-    return '<div style="margin:0 0 12px;">' +
-      '<div style="font-weight:700;color:#1565c0;margin-bottom:3px;">Sinerji / Kombinasyonlar</div>' +
-      items +
+  }
+
+  function sectionHtml(sec, drug) {
+    var value = drug[sec.key];
+    if (!value || (Array.isArray(value) && !value.length)) return "";
+    var tone = THEME.tones[sec.tone];
+    var body;
+    if (sec.kind === "doses") body = dosesBody(value, tone);
+    else if (sec.kind === "rows") body = rowsBody(value, tone);
+    else if (sec.kind === "synergy") body = synergyBody(value, tone);
+    else body = textBody(value);
+    if (sec.nefroNote && drug.nefroNot) {
+      body += '<div style="margin-top:6px;font-weight:600;color:' + riskColors(drug).fg + ';">' + rich(drug.nefroNot) + "</div>";
+    }
+    return '<div style="margin:0 0 12px;padding:10px 12px;border-left:4px solid ' + tone.bar + ";background:" + tone.bg + ';border-radius:0 8px 8px 0;">' +
+      '<div style="font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:' + tone.title + ';margin-bottom:6px;">' + esc(sec.title) + "</div>" +
+      body +
       "</div>";
   }
 
-  function nefroBox(drug) {
-    var color = NEFRO_COLORS[drug.nefroSeviye] || "#616161";
-    return '<div style="margin:10px 0;padding:8px 10px;border-radius:8px;background:' + color + "18;border-left:4px solid " + color + ';">' +
-      "<b>Nefrotoksisite: </b>" +
-      '<span style="color:' + color + ';font-weight:700;">' + esc(drug.nefroSeviye || "-") + "</span>" +
-      (drug.nefroNot ? '<div style="margin-top:4px;">' + multiline(drug.nefroNot) + "</div>" : "") +
-      "</div>";
+  function riskBadge(drug) {
+    var c = riskColors(drug);
+    return '<span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;background:' + c.bg + ";color:" + c.fg + ';">' +
+      '<span style="width:7px;height:7px;border-radius:999px;background:currentColor;display:inline-block;"></span>' +
+      "Nefrotoksisite: " + esc(drug.nefroSeviye || "-") +
+      "</span>";
   }
 
   function panelHtml(drug) {
-    return '<div style="position:sticky;top:0;background:#1565c0;color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:flex-start;">' +
+    return '<div style="position:sticky;top:0;background:' + THEME.header + ';color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:flex-start;z-index:1;">' +
       "<div>" +
       '<div style="font-size:16px;font-weight:700;">' + esc(drug.etken) + "</div>" +
       '<div style="font-size:12px;opacity:.85;margin-top:2px;">' + esc(drug.pazar || "") + "</div>" +
@@ -131,19 +210,12 @@
       "</div>" +
       '<span id="abx-close" style="cursor:pointer;font-size:22px;line-height:1;padding:4px 8px;font-weight:700;">&times;</span>' +
       "</div>" +
-      '<div style="padding:8px 16px 4px;text-align:right;">' +
+      '<div style="padding:10px 16px 6px;display:flex;justify-content:space-between;align-items:center;gap:8px;">' +
+      riskBadge(drug) +
       '<button id="abx-close2" style="cursor:pointer;background:#eee;border:none;border-radius:6px;padding:6px 12px;font-size:12px;">Kapat (Esc)</button>' +
       "</div>" +
-      '<div style="padding:6px 16px 14px;">' +
-      section("Özellikler", drug.ozellikler) +
-      section("Endikasyon", drug.endikasyon) +
-      section("Standart Doz", drug.standartDoz) +
-      section("Renal Doz Ayarı", drug.renalDoz) +
-      section("Sınırlamalar", drug.sinirlamalar) +
-      synergySection(drug.sinerji) +
-      section("Yan Etki", drug.yanEtki) +
-      nefroBox(drug) +
-      section("Eliminasyon", drug.eliminasyon) +
+      '<div style="padding:6px 16px 18px;">' +
+      SECTIONS.map(function (sec) { return sectionHtml(sec, drug); }).join("") +
       "</div>";
   }
 
@@ -170,6 +242,7 @@
       panel.id = "abx-info-panel";
       panel.style.cssText = "position:fixed;top:0;right:0;left:auto;bottom:auto;margin:0;width:420px;max-width:92vw;height:100vh;background:#fff;color:#111;box-shadow:-4px 0 24px rgba(0,0,0,.35);z-index:2147483647;overflow-y:auto;font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:13.5px;line-height:1.5;padding:0;";
       panel.addEventListener("click", function (e) { e.stopPropagation(); });
+      panel.setAttribute("lang", "tr");
       if (HAS_POPOVER) panel.setAttribute("popover", "manual");
       document.body.appendChild(panel);
     }
