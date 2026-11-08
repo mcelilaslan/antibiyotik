@@ -204,7 +204,7 @@ const DRUG_DATA = [
     "ozellikler": "Dar spektrumlu Gram-pozitif kapsama (MRSA ve Ampisiline duyarlı Enterokoklar dahil). Vankomisine göre çok daha uzun yarı ömre sahiptir.",
     "endikasyon": "Kateter ilişkili enfeksiyonlar, deri-yumuşak doku enfeksiyonları, MRSA sepsisi, kemik-eklem enfeksiyonları.",
     "standartDoz": "Düşük Doz: Yükleme 6 mg/kg q12h (3 doz), ardından 6 mg/kg q24h IV\nYüksek Doz: Yükleme 12 mg/kg q12h (3-5 doz), ardından 12 mg/kg q24h IV\nAğır stafilokokal endokardit ve kemik enfeksiyonlarında hedef serum düzeyi >20-30 mg/L. IM yoldan da uygulanabilir.",
-    "renalDoz": "İlk 3 gün (veya yükleme fazında) doz azaltılmaz.\nCrCl 40-60: İdame dozu %50 azaltılır veya 48 saatte bir (q48h) verilir.\nCrCl <40: İdame dozu normalin 1/3'üne azaltılır veya 3 günde bir (q72h) verilir.\nHD/CRRT: Normal yükleme, idame dozu 3 günde bir verilir.",
+    "renalDoz": "İlk 3 dozda (yükleme fazında) doz azaltılmaz.\nCrCl 40-60: İdame dozu %50 azaltılır veya 48 saatte bir (q48h) verilir.\nCrCl <40: İdame dozu normalin 1/3'üne azaltılır veya 3 günde bir (q72h) verilir.\nHD/CRRT: Normal yükleme, idame dozu 3 günde bir verilir.",
     "sinirlamalar": "Gram-negatif bakteriler, anaeroblar, VRE (özellikle VanA fenotipi dirençlidir).",
     "yanEtki": "Trombositopeni (özellikle yüksek dozlarda), aşırı duyarlılık (ilaç ateşi), döküntü, geçici karaciğer enzim yüksekliği.",
     "nefroSeviye": "Düşük",

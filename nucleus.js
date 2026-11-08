@@ -240,7 +240,7 @@
     if (!panel) {
       panel = document.createElement("div");
       panel.id = "abx-info-panel";
-      panel.style.cssText = "position:fixed;top:0;right:0;left:auto;bottom:auto;margin:0;width:420px;max-width:92vw;height:100vh;background:#fff;color:#111;box-shadow:-4px 0 24px rgba(0,0,0,.35);z-index:2147483647;overflow-y:auto;font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:13.5px;line-height:1.5;padding:0;";
+      panel.style.cssText = "position:fixed;top:0;right:0;left:auto;bottom:auto;margin:0;width:420px;max-width:92vw;height:100vh;background:#fff;color:#111;box-shadow:-4px 0 24px rgba(0,0,0,.35);z-index:2147483647;overflow-y:auto;overscroll-behavior:contain;font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:13.5px;line-height:1.5;padding:0;";
       panel.addEventListener("click", function (e) { e.stopPropagation(); });
       panel.setAttribute("lang", "tr");
       if (HAS_POPOVER) panel.setAttribute("popover", "manual");
@@ -263,9 +263,15 @@
     }
   }
 
+  function isCovered(panel) {
+    var rect = panel.getBoundingClientRect();
+    var top = document.elementFromPoint(rect.left + rect.width / 2, rect.top + 20);
+    return !!top && !panel.contains(top);
+  }
+
   function keepPanelOnTop() {
     var panel = document.getElementById("abx-info-panel");
-    if (!panel) return;
+    if (!panel || !isCovered(panel)) return;
     if (HAS_POPOVER) {
       try {
         if (panel.matches(":popover-open")) {
@@ -316,7 +322,14 @@
       });
       cell.appendChild(pill);
     }
-    keepPanelOnTop();
+  }
+
+  function tick() {
+    if (document.getElementById("abx-info-panel")) {
+      keepPanelOnTop();
+      return;
+    }
+    decorateCells();
   }
 
   function readCache() {
@@ -381,6 +394,6 @@
   loadData(false, function (data) {
     applyData(data);
     decorateCells();
-    setInterval(decorateCells, SCAN_INTERVAL_MS);
+    setInterval(tick, SCAN_INTERVAL_MS);
   });
 })();
