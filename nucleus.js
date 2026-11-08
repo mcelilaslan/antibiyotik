@@ -212,7 +212,7 @@
       "</div>" +
       '<div style="padding:10px 16px 6px;display:flex;justify-content:space-between;align-items:center;gap:8px;">' +
       riskBadge(drug) +
-      '<button id="abx-close2" style="cursor:pointer;background:#eee;border:none;border-radius:6px;padding:6px 12px;font-size:12px;">Kapat (Esc)</button>' +
+      '<button id="abx-close2" style="cursor:pointer;background:#e8ecf1;color:#1f2937;border:1px solid #b8c1cc;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:600;">Kapat (Esc)</button>' +
       "</div>" +
       '<div style="padding:6px 16px 18px;">' +
       SECTIONS.map(function (sec) { return sectionHtml(sec, drug); }).join("") +
@@ -232,7 +232,6 @@
       backdrop = document.createElement("div");
       backdrop.id = "abx-panel-backdrop";
       backdrop.style.cssText = "position:fixed;inset:0;background:transparent;z-index:2147483646;";
-      backdrop.addEventListener("click", closePanel);
       document.body.appendChild(backdrop);
     }
 
@@ -240,22 +239,13 @@
     if (!panel) {
       panel = document.createElement("div");
       panel.id = "abx-info-panel";
-      panel.style.cssText = "position:fixed;top:0;right:0;left:auto;bottom:auto;margin:0;width:420px;max-width:92vw;height:100vh;background:#fff;color:#111;box-shadow:-4px 0 24px rgba(0,0,0,.35);z-index:2147483647;overflow-y:auto;overscroll-behavior:contain;font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:13.5px;line-height:1.5;padding:0;";
-      panel.addEventListener("click", function (e) { e.stopPropagation(); });
+      panel.style.cssText = "position:fixed;top:0;right:0;left:auto;bottom:auto;margin:0;width:420px;max-width:92vw;height:100vh;background:#fff;color:#111;box-shadow:-4px 0 24px rgba(0,0,0,.35);z-index:2147483647;pointer-events:auto;color-scheme:light;overflow-y:auto;overscroll-behavior:contain;font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:13.5px;line-height:1.5;padding:0;";
       panel.setAttribute("lang", "tr");
       if (HAS_POPOVER) panel.setAttribute("popover", "manual");
       document.body.appendChild(panel);
     }
 
     panel.innerHTML = panelHtml(drug);
-    document.getElementById("abx-close").addEventListener("click", function (e) {
-      e.stopPropagation();
-      closePanel();
-    });
-    document.getElementById("abx-close2").addEventListener("click", function (e) {
-      e.stopPropagation();
-      closePanel();
-    });
 
     if (HAS_POPOVER) {
       try { if (panel.matches(":popover-open")) panel.hidePopover(); } catch (e) {}
@@ -271,7 +261,10 @@
 
   function keepPanelOnTop() {
     var panel = document.getElementById("abx-info-panel");
-    if (!panel || !isCovered(panel)) return;
+    if (!panel) return;
+    panel.removeAttribute("inert");
+    panel.removeAttribute("aria-hidden");
+    if (!isCovered(panel)) return;
     if (HAS_POPOVER) {
       try {
         if (panel.matches(":popover-open")) {
@@ -386,6 +379,23 @@
     };
     document.body.appendChild(badge);
   }
+
+  function guardPanelEvent(e) {
+    var path = e.composedPath ? e.composedPath() : [];
+    var panel = document.getElementById("abx-info-panel");
+    var backdrop = document.getElementById("abx-panel-backdrop");
+    var inPanel = !!panel && path.indexOf(panel) !== -1;
+    var onBackdrop = !!backdrop && path.indexOf(backdrop) !== -1;
+    if (!inPanel && !onBackdrop) return;
+    e.stopPropagation();
+    if (e.type !== "click") return;
+    var id = path[0] && path[0].id;
+    if (onBackdrop || id === "abx-close" || id === "abx-close2") closePanel();
+  }
+
+  ["pointerdown", "pointerup", "mousedown", "mouseup", "click"].forEach(function (type) {
+    window.addEventListener(type, guardPanelEvent, true);
+  });
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") closePanel();
