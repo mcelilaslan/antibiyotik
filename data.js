@@ -433,19 +433,55 @@ const DRUG_DATA = [
     "grup": "Florokinolon",
     "etken": "Levofloksasin",
     "pazar": "Tavanic, Kravit",
-    "ozellikler": "Geniş Gram-pozitif, Gram-negatif aeroblar ve mükemmel atipik patojen etkinliği.",
-    "endikasyon": "Toplum ve hastane kaynaklı pnömoni, lejyonella enfeksiyonları, komplike İYE.",
-    "standartDoz": "Düşük Doz: 500 mg q24h IV/PO (Standart solunum, İYE)\nYüksek Doz: 500 mg q12h IV/PO VEYA 750 mg q24h IV (Ağır nozokomiyal pnömoni, VAP, dirençli pnömoni)",
+    "ozellikler": "Geniş Gram-pozitif, Gram-negatif aeroblar ve mükemmel atipik patojen etkinliği. 3. kuşak florokinolon, ofloksasinin aktif L-izomeridir; Pseudomonas aeruginosa dahil. PK/PD hedefi Cmax/MIC ve AUC/MIC (Gram-negatiflerde AUC/MIC >125). Anaerop aktivitesi zayıftır.",
+    "endikasyon": "Toplum ve hastane kaynaklı pnömoni, lejyonella enfeksiyonları, komplike İYE. Ürosepsiste anahtar florokinolondur (idrarda çok yüksek aktif konsantrasyon); Legionella'da ilk seçenek IV ajanlardandır; dirençli TB'de 2. hat bileşen.",
+    "standartDoz": "Düşük Doz: 500 mg q24h IV/PO (Standart solunum, İYE)\nYüksek Doz: 500 mg q12h IV/PO VEYA 750 mg q24h IV (Ağır nozokomiyal pnömoni, VAP, dirençli pnömoni)\nYBÜ nozokomiyal pnömoni ve Pseudomonas'ta direnç gelişimini önlemek ve doku penetrasyonunu artırmak için 750 mg q24h tercih edilir.\nIV'den PO'ya geçişte biyoyararlanım ~%100'dür, doz değişmez (750 mg IV → 750 mg PO).",
     "renalDoz": "CrCl >=50: Doz ayarı gerekmez.\nCrCl 20-49: İlk gün 500-750 mg, sonra 250 mg q24h veya 500 mg q48h.\nCrCl <20: İlk gün 500-750 mg, sonra 250 mg q48h.",
-    "sinirlamalar": "Anaerobik bakterilere zayıf etkilidir; MRSA'ya karşı monoterapi olarak önerilmez.",
-    "yanEtki": "QTc uzaması, nörogirişimsel bozukluklar (özellikle yaşlılarda konfüzyon/halüsinasyon), tendon hasarı. Aort diseksiyonu riskinde artış, myasthenia gravis alevlenmesi, nöbet eşiğinde düşme.",
+    "sinirlamalar": "Anaerobik bakterilere zayıf etkilidir; MRSA'ya karşı monoterapi olarak önerilmez. MRSA'ya etkisizdir. Anaeroplara etkisizdir: intraabdominal enfeksiyonda metronidazolsuz monoterapi olarak KULLANILMAMALIDIR. Pseudomonas aktivitesi siprofloksasinden biraz düşük olsa da 750 mg ile YBÜ'de etkili kapsama sağlar.",
+    "yanEtki": "QTc uzaması, nörogirişimsel bozukluklar (özellikle yaşlılarda konfüzyon/halüsinasyon), tendon hasarı. Aort diseksiyonu riskinde artış, myasthenia gravis alevlenmesi, nöbet eşiğinde düşme. Siprofloksasine göre nöbet ve nörotoksisite riski belirgin düşüktür (yaşlı ve renal yetmezlikli hastada yine de konfüzyon, halüsinasyon, NCSE görülebilir). QTc riski moksifloksasinden düşüktür. Aşil tendonu kopması (FDA uyarısı). Dizglisemi (özellikle oral antidiyabetik alanlarda). Mg, Al, Ca, Fe, Zn ile oral emilim bozulur. Siprofloksasinin aksine MRSA kolonizasyonunu uyarmaz.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Renal (%85 idrarla değişmeden atılır)",
+    "eliminasyon": "Renal (%85 idrarla değişmeden atılır) Yarı ömür 6-8 saat; glomerüler filtrasyon ve tübüler sekresyonla atılır, idrar konsantrasyonu serumun katbekatıdır.",
     "sinerji": [
       {
         "kombinasyon": "Seftriakson / Sefepim / Meropenem + Levofloksasin",
         "not": "Ağır CAP ve VAP'ta; Legionella gibi hücre içi atipikleri kapsar ve klerensi hızlandırır."
+      },
+      {
+        "kombinasyon": "Antipsödomonal beta-laktam (Sefepim, Pip-Tazo, Meropenem, Seftazidim) + Levofloksasin",
+        "not": "Dirençli Pseudomonas şüphesinde HAP/VAP ve üroseptik şokta çift kapsama."
+      },
+      {
+        "kombinasyon": "Levofloksasin + Metronidazol veya Klindamisin",
+        "not": "İntraabdominal ve pelvik sepsiste anaerop boşluğunu kapatır."
+      }
+    ]
+  },
+  {
+    "slug": "moksifloksasin",
+    "kategori": "FLOROKİNOLONLAR & DİĞERLERİ",
+    "kategoriKisa": "Florokinolon ve Diğerleri",
+    "kategoriRenk": "green",
+    "grup": "Florokinolon (4. Kuşak, Solunum)",
+    "etken": "Moksifloksasin",
+    "pazar": "Avelox",
+    "ozellikler": "DNA giraz ve Topoisomeraz IV inhibisyonu ile konsantrasyona bağımlı bakterisidal etki (Cmax/MIC ve AUC/MIC). Penisiline dirençli S. pneumoniae, atipikler (Legionella, Mycoplasma, Chlamydia), H. influenzae, Moraxella ve Enterobacteriaceae'ya etkilidir. Florokinolonlar arasında belirgin anaerop kapsamı (B. fragilis dahil) olan ender ajandır.",
+    "endikasyon": "Ağır CAP (özellikle beta-laktam kullanılamayan/penisilin alerjili hastada), ağır atipik pnömoni (Legionella, Mycoplasma), komplike intraabdominal enfeksiyon (beta-laktam alerjisinde veya düşük riskte), komplike pelvik ve yumuşak doku enfeksiyonları, dirençli TB rejimlerinde 2. seçenek.",
+    "standartDoz": "Standart Doz: 400 mg IV veya PO q24h\nYüksek doz önerilmez; 400 mg/gün doku konsantrasyonu için optimize edilmiştir.\nIV'den PO'ya geçişte oral biyoyararlanım ~%100'dür, aynı doz (400 mg q24h) kullanılır.",
+    "renalDoz": "CrCl (>50, 10-50, <10): Doz ayarı gerekmez (400 mg q24h); karaciğerden elimine edilir.\nHD: Doz ayarı gerekmez, diyaliz sonrası ek doz verilmez.\nPD: Doz ayarı gerekmez.",
+    "sinirlamalar": "Pseudomonas aeruginosa'ya KESİNLİKLE etkisizdir. MRSA'ya etkisizdir. İdrarda aktif ilaç oranı çok düşük olduğu için ürosepsis, piyelonefrit ve komplike sistitte KULLANILMAZ. B. fragilis'te direnç gelişebildiğinden ağır abdominal sepsiste monoterapi riskli olabilir.",
+    "yanEtki": "Florokinolonlar içinde en yüksek QTc uzaması ve Torsades de Pointes riski (hipokalemi, hipomagnezemi, Sınıf IA/III antiaritmiklerle artar). Tendinit ve Aşil tendonu kopması (FDA kutu uyarısı). Konfüzyon, ajitasyon, uykusuzluk, halüsinasyon, nöbet eşiğinde düşme. Dizglisemi (hipo ve hiperglisemi). Myastenia gravis'te kontrendikedir. Mg, Al, Ca, Fe, Zn içeren ilaçlarla oral emilimi bozulur (en az 2 saat önce veya 6 saat sonra verilmeli).",
+    "nefroSeviye": "Düşük",
+    "nefroNot": "",
+    "eliminasyon": "Hepatik (glukuronid ve sülfat konjugasyonu); yarı ömür ~12 saat, böbrek yetmezliğinde birikmez",
+    "sinerji": [
+      {
+        "kombinasyon": "Moksifloksasin + Sefepim / Pip-Tazo / Meropenem",
+        "not": "Ağır CAP ve sepsiste tipik + atipik kapsamı genişletir."
+      },
+      {
+        "kombinasyon": "Moksifloksasin + Metronidazol veya Klindamisin",
+        "not": "Ağır intraabdominal sepsiste anaerop güvenliğini pekiştirir."
       }
     ]
   },
