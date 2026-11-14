@@ -264,10 +264,12 @@
       (drug.nefroNot ? '<p style="color:var(--risk-' + riskClass + ')">' + escapeHtml(drug.nefroNot) + "</p>" : "") +
       "</div>" +
 
-      '<div class="section">' +
-      "<h3>Eliminasyon ve atılım</h3>" +
-      '<p class="eliminasyon-line">' + escapeHtml(drug.eliminasyon) + "</p>" +
-      "</div>";
+      (drug.eliminasyon
+        ? '<div class="section">' +
+          "<h3>Eliminasyon ve atılım</h3>" +
+          '<p class="eliminasyon-line">' + escapeHtml(drug.eliminasyon) + "</p>" +
+          "</div>"
+        : "");
 
     els.detailBody.innerHTML = html;
     document.title = drug.etken + " — YBÜ Antibiyotik Rehberi";
