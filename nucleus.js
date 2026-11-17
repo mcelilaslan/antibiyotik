@@ -64,7 +64,17 @@
     return a === b || commonPrefixLength(a, b) >= 6;
   }
 
+  var brandMap = {};
+
   function buildIndex() {
+    brandMap = {};
+    drugs.forEach(function (d) {
+      (d.markalar || []).concat((d.pazar || "").split(",")).forEach(function (b) {
+        tokenize(b).forEach(function (t) {
+          if (!brandMap[t]) brandMap[t] = d;
+        });
+      });
+    });
     index = drugs
       .map(function (d) { return { drug: d, tokens: tokenize(d.etken) }; })
       .filter(function (e) { return e.tokens.length > 0; });
@@ -73,6 +83,9 @@
   function findDrug(text) {
     var cellTokens = tokenize(text);
     if (!cellTokens.length) return null;
+    for (var b = 0; b < cellTokens.length; b++) {
+      if (brandMap[cellTokens[b]]) return brandMap[cellTokens[b]];
+    }
     var best = null;
     var bestScore = 0;
     for (var i = 0; i < index.length; i++) {

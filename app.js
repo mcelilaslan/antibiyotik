@@ -64,7 +64,7 @@
   function matchesQuery(drug, q) {
     if (!q) return true;
     var haystack = [
-      drug.etken, drug.pazar, drug.ozellikler, drug.endikasyon,
+      drug.etken, drug.pazar, (drug.markalar || []).join(" "), drug.ozellikler, drug.endikasyon,
       drug.grup, drug.kategoriKisa
     ].join(" ");
     return normalize(haystack).indexOf(normalize(q)) !== -1;

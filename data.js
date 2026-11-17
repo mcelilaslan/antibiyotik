@@ -27,6 +27,16 @@ const DRUG_DATA = [
         "kombinasyon": "Pip-Tazo + Tigesiklin",
         "not": "Ağır intraabdominal sepsiste karbapenem-koruyucu rejim."
       }
+    ],
+    "markalar": [
+      "Avitaz",
+      "Pipraks",
+      "Tazeracin",
+      "Tazilix",
+      "Tazocin",
+      "Tazoject",
+      "Tazoper",
+      "Tipraxin"
     ]
   },
   {
@@ -51,6 +61,13 @@ const DRUG_DATA = [
         "kombinasyon": "Sefepim + Amikasin veya Levofloksasin",
         "not": "DTR Pseudomonas VAP ve nekrotizan nozokomiyal pnömonide ilk 3-5 gün erken bakteriyel yükü azaltır."
       }
+    ],
+    "markalar": [
+      "Avipim",
+      "Ekipim",
+      "Maxipime",
+      "Roxipime",
+      "Unisef"
     ]
   },
   {
@@ -79,6 +96,9 @@ const DRUG_DATA = [
         "kombinasyon": "CAZ-AVI + Metronidazol",
         "not": "İntraabdominal enfeksiyonda zorunlu; avibaktamın anaerop etkisi yok."
       }
+    ],
+    "markalar": [
+      "Zavicefta"
     ]
   },
   {
@@ -107,6 +127,13 @@ const DRUG_DATA = [
         "kombinasyon": "Sef-Sulbaktam + Yüksek doz Tigesiklin",
         "not": "CRAB'da hücre duvarı + 30S ribozom blokajı; mortaliteyi düşürür."
       }
+    ],
+    "markalar": [
+      "Cefperazon",
+      "Sefbaktam",
+      "Sulperazon",
+      "Sulzon",
+      "Zonactam"
     ]
   },
   {
@@ -139,6 +166,14 @@ const DRUG_DATA = [
         "kombinasyon": "Yüksek doz Meropenem (2 g q8h, 3-4 saat infüzyon) + Kolistin veya Amikasin",
         "not": "Sınırda MİK (≤8-16 mcg/mL) suşlarda klinik yanıtı artırır."
       }
+    ],
+    "markalar": [
+      "Maxipen",
+      "Meronem",
+      "Merosid",
+      "Mopem",
+      "Mopen",
+      "Penerem"
     ]
   },
   {
@@ -163,6 +198,13 @@ const DRUG_DATA = [
         "kombinasyon": "İmipenem + Kolistin veya yüksek doz Ampisilin-Sulbaktam",
         "not": "CRAB ve CRE olgularında tercih edilir."
       }
+    ],
+    "markalar": [
+      "Cilapem",
+      "Imicil",
+      "Rivona",
+      "Silanem",
+      "Tienam"
     ]
   },
   {
@@ -191,6 +233,20 @@ const DRUG_DATA = [
         "kombinasyon": "Vankomisin + Rifampisin + Gentamisin",
         "not": "Biyofilm ve protez kapak endokarditinde; rifampisin biyofilme penetre olur, gentamisin ilk 2 hafta."
       }
+    ],
+    "markalar": [
+      "Anko",
+      "Edicin",
+      "Vamocozin",
+      "Vamycin",
+      "Vancocin",
+      "Vancomax",
+      "Vancorin",
+      "Vancotek",
+      "Vankocent",
+      "Vankomyl",
+      "Vankopol",
+      "Vankurais"
     ]
   },
   {
@@ -219,6 +275,20 @@ const DRUG_DATA = [
         "kombinasyon": "Teikoplanin + Rifampisin veya Fosfomisin",
         "not": "Derin doku ve kemik enfeksiyonlarında; hücre içi ve biyofilm etkinliği."
       }
+    ],
+    "markalar": [
+      "Coplanin",
+      "Enflanis",
+      "Planicid",
+      "Repigo",
+      "Targocid",
+      "Teicoject",
+      "Teikopol",
+      "Teiplacid",
+      "Teklonin",
+      "Tekosit",
+      "Teoplan",
+      "Tizoles"
     ]
   },
   {
@@ -247,6 +317,15 @@ const DRUG_DATA = [
         "kombinasyon": "Daptomisin + Fosfomisin",
         "not": "Biyofilm ilişkili MRSA ve enterokok bakteremisinde; zar ve hücre duvarını birlikte yıkar."
       }
+    ],
+    "markalar": [
+      "Cubicin",
+      "Dapacin",
+      "Daptocin",
+      "Daptomax",
+      "Daptopol",
+      "Dupcin",
+      "Xapto"
     ]
   },
   {
@@ -275,6 +354,20 @@ const DRUG_DATA = [
         "kombinasyon": "Linezolid + Rifampisin",
         "not": "Dirençli enterokok ve MRSA menenjitinde (kan-beyin bariyerini geçer)."
       }
+    ],
+    "markalar": [
+      "Limexid",
+      "Linedor",
+      "Lineject",
+      "Linexolid",
+      "Linezone",
+      "Linezosel",
+      "Linoxid",
+      "Lizolid",
+      "Lynozid",
+      "Polinoksid",
+      "Zizolid",
+      "Zyvoxid"
     ]
   },
   {
@@ -311,6 +404,14 @@ const DRUG_DATA = [
         "kombinasyon": "Kolistin + Fosfomisin",
         "not": "Hücre duvarı sentezi erken durur, zar parçalanır."
       }
+    ],
+    "markalar": [
+      "Cofibcol",
+      "Colimycin",
+      "Colis",
+      "Kolistate",
+      "Kolistipol",
+      "Sodkolis"
     ]
   },
   {
@@ -335,6 +436,9 @@ const DRUG_DATA = [
         "kombinasyon": "Polimiksin B + Meropenem / Tigesiklin / Minosiklin / Amikasin",
         "not": "CRE ve CRAB bakteremilerinde tercih; kolistinle aynı sinerji mekanizması, ön-ilaç değil ve kanda hızla kararlı düzeye ulaşır."
       }
+    ],
+    "markalar": [
+      "Polix"
     ]
   },
   {
@@ -363,6 +467,16 @@ const DRUG_DATA = [
         "kombinasyon": "IV Amikasin + Nebulize Amikasin",
         "not": "VAP'ta tercih; ELF'de binlerce kat yüksek konsantrasyon, sistemik toksisite olmadan."
       }
+    ],
+    "markalar": [
+      "Amexot",
+      "Amijeksin",
+      "Amikaver",
+      "Amiketem",
+      "Amikozit",
+      "Kacin",
+      "Mikasin",
+      "Ryofel"
     ]
   },
   {
@@ -395,6 +509,17 @@ const DRUG_DATA = [
         "kombinasyon": "Tigesiklin + Yüksek doz Meropenem",
         "not": "MBL ve KPC suşlarında."
       }
+    ],
+    "markalar": [
+      "Mrsacin",
+      "Tgixel",
+      "Tigecid",
+      "Tigeject",
+      "Tigenex",
+      "Tybicid",
+      "Tygacil",
+      "Tygepol",
+      "Tygex"
     ]
   },
   {
@@ -423,6 +548,25 @@ const DRUG_DATA = [
         "kombinasyon": "Siprofloksasin + Rifampisin",
         "not": "Stafilokok veya Pseudomonas biyofilminde (protez, yabancı cisim)."
       }
+    ],
+    "markalar": [
+      "Baysip",
+      "Ciflosin",
+      "Ciprasel",
+      "Ciprasid",
+      "Cipro",
+      "Ciproktan",
+      "Cipronatin",
+      "Cipropol",
+      "Flotic",
+      "Roflazin",
+      "Roxin",
+      "Sanset",
+      "Sifloks",
+      "Siprobel",
+      "Siproject",
+      "Siprosan",
+      "Vonecip"
     ]
   },
   {
@@ -455,6 +599,31 @@ const DRUG_DATA = [
         "kombinasyon": "Levofloksasin + Metronidazol veya Klindamisin",
         "not": "İntraabdominal ve pelvik sepsiste anaerop boşluğunu kapatır."
       }
+    ],
+    "markalar": [
+      "Beraxin",
+      "Floxilevo",
+      "Ilflox",
+      "Infecur",
+      "Kravit",
+      "Lebel",
+      "Lefox",
+      "Levoflex",
+      "Levoject",
+      "Levonat",
+      "Levonidin",
+      "Levosasin",
+      "Levoworld",
+      "Levoximed",
+      "Levoxipolin",
+      "Levozer",
+      "Lexsan",
+      "Lexur",
+      "Nevotek",
+      "Potant",
+      "Ravivo",
+      "Tavanic",
+      "Voleflok"
     ]
   },
   {
@@ -483,6 +652,24 @@ const DRUG_DATA = [
         "kombinasyon": "Moksifloksasin + Metronidazol veya Klindamisin",
         "not": "Ağır intraabdominal sepsiste anaerop güvenliğini pekiştirir."
       }
+    ],
+    "markalar": [
+      "Atafloks",
+      "Avelox",
+      "Emesmox",
+      "Kinomox",
+      "Mofelox",
+      "Moksefen",
+      "Moksilox",
+      "Moxacin",
+      "Moxai",
+      "Moxday",
+      "Moxicum",
+      "Moxiflex",
+      "Moxitab",
+      "Moxitec",
+      "Pitoxil",
+      "Pnemox"
     ]
   },
   {
@@ -515,6 +702,16 @@ const DRUG_DATA = [
         "kombinasyon": "Oral Vankomisin (500 mg q6h) + IV Metronidazol (500 mg q8h)",
         "not": "Fulminan C. difficile kolitinde tercih; lümende vankomisin, bağırsak duvarı ve submukozada metronidazol."
       }
+    ],
+    "markalar": [
+      "Azogyl",
+      "Fladazol",
+      "Flagyl",
+      "Laronium",
+      "Metrolynx",
+      "Neofleks",
+      "Nidazol",
+      "Turkfleks"
     ]
   },
   {
@@ -543,6 +740,10 @@ const DRUG_DATA = [
         "kombinasyon": "TMP-SMX + Prednizon / Metilprednizolon",
         "not": "Orta-ağır PJP'de (oda havasında PaO2 <70 mmHg) mortalite ve solunum yetmezliğini azaltmak için."
       }
+    ],
+    "markalar": [
+      "Bactrim",
+      "Trimoks"
     ]
   },
   {
@@ -561,7 +762,28 @@ const DRUG_DATA = [
     "yanEtki": "Karaciğer enzimlerinde (ALT/AST) yükseklik, QTc uzaması, döküntü.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Renal (%80 idrarla değişmeden atılır)"
+    "eliminasyon": "Renal (%80 idrarla değişmeden atılır)",
+    "markalar": [
+      "Candidin",
+      "Candiflu",
+      "Candimax",
+      "Candisept",
+      "Canzolix",
+      "Flucan",
+      "Flucofex",
+      "Fluject",
+      "Flukodeks",
+      "Flukol",
+      "Flukopol",
+      "Flukosel",
+      "Flumasin",
+      "Fluzamed",
+      "Fluzole",
+      "Fungan",
+      "Kandizol",
+      "Triflucan",
+      "Zolax"
+    ]
   },
   {
     "slug": "vorikonazol",
@@ -579,7 +801,24 @@ const DRUG_DATA = [
     "yanEtki": "Geçici görsel bozukluklar (%30, parlaklık artışı vb.), karaciğer toksisitesi, döküntü, halüsinasyonlar.",
     "nefroSeviye": "Orta",
     "nefroNot": "IV formdaki taşıyıcı madde nedeniyle renal risk",
-    "eliminasyon": "Hepatik (CYP2C19, CYP2C9 ve CYP3A4 üzerinden yoğun metabolizma)"
+    "eliminasyon": "Hepatik (CYP2C19, CYP2C9 ve CYP3A4 üzerinden yoğun metabolizma)",
+    "markalar": [
+      "Nobivor",
+      "Trozasin",
+      "Vfend",
+      "Viprazol",
+      "Voranex",
+      "Vorazyr",
+      "Vorent",
+      "Vorifull",
+      "Vorigen",
+      "Voriject",
+      "Vorikandin",
+      "Vorisper",
+      "Vorix",
+      "Vorzol",
+      "Vzole"
+    ]
   },
   {
     "slug": "kaspofungin",
@@ -597,7 +836,20 @@ const DRUG_DATA = [
     "yanEtki": "Hipoalbüminemi, karaciğer enzimlerinde yükselme, infüzyon ilişkili histamin deşarjı.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Hepatik metabolizma (böbrekten minimal atılım)"
+    "eliminasyon": "Hepatik metabolizma (böbrekten minimal atılım)",
+    "markalar": [
+      "Afundas",
+      "Cancas",
+      "Cancidas",
+      "Capifung",
+      "Casfucide",
+      "Casfugin",
+      "Caspobiem",
+      "Caspopol",
+      "Claxom",
+      "Fungidas",
+      "Funsocol"
+    ]
   },
   {
     "slug": "lipozomal-amfoterisin-b",
@@ -615,7 +867,10 @@ const DRUG_DATA = [
     "yanEtki": "Ağır nefrotoksisite (tübüler asidoz, K/Mg kaybı), infüzyon ilişkili reaksiyonlar (titreme, ateş, rigor).",
     "nefroSeviye": "Yüksek",
     "nefroNot": "Konvansiyonel forma göre daha düşük ama ICU'da hala yüksektir",
-    "eliminasyon": "Hepatik ve Renal dışı (Yarı ömrü çok uzundur, dokularda birikir)"
+    "eliminasyon": "Hepatik ve Renal dışı (Yarı ömrü çok uzundur, dokularda birikir)",
+    "markalar": [
+      "Ambisome"
+    ]
   },
   {
     "slug": "mikafungin",
@@ -633,7 +888,16 @@ const DRUG_DATA = [
     "yanEtki": "Transaminaz yükseklikleri, hiperbilirubinemi; zayıf CYP3A4 inhibisyonu (takrolimus/sirolimus düzeylerini hafif artırabilir).",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Hepatik (feçes ve safra yoluyla); hafif-orta karaciğer yetmezliğinde doz ayarı gerekmez"
+    "eliminasyon": "Hepatik (feçes ve safra yoluyla); hafif-orta karaciğer yetmezliğinde doz ayarı gerekmez",
+    "markalar": [
+      "Mifundex",
+      "Mikafungus",
+      "Mixagin",
+      "Msfungin",
+      "Myacit",
+      "Myafung",
+      "Mycamine"
+    ]
   },
   {
     "slug": "anidulafungin",
@@ -651,7 +915,10 @@ const DRUG_DATA = [
     "yanEtki": "İnfüzyona bağlı hipotansiyon ve flushing (yavaş infüzyon gerekir); CYP sistemini etkilemediği için ilaç etkileşimi en az olan ekinokandindir.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Karaciğer/böbrekte metabolize edilmez; plazmada spontan kimyasal yıkımla (Hofmann benzeri) inaktif hale gelir"
+    "eliminasyon": "Karaciğer/böbrekte metabolize edilmez; plazmada spontan kimyasal yıkımla (Hofmann benzeri) inaktif hale gelir",
+    "markalar": [
+      "Ecalta"
+    ]
   },
   {
     "slug": "isavukonazol",
@@ -669,7 +936,10 @@ const DRUG_DATA = [
     "yanEtki": "Diğer azollerin aksine QTc aralığını UZATMAZ, KISALTIR (kalıtsal kısa QT sendromunda kontrendike); vorikonazole göre hepatotoksisite, görsel bozukluk ve halüsinasyon riski çok daha düşüktür.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Hepatik (CYP3A4/5 ve UGT ile metabolize, feçes/safra ile atılır); yarı ömrü çok uzundur (100-130 saat)"
+    "eliminasyon": "Hepatik (CYP3A4/5 ve UGT ile metabolize, feçes/safra ile atılır); yarı ömrü çok uzundur (100-130 saat)",
+    "markalar": [
+      "Cresemba"
+    ]
   },
   {
     "slug": "posakonazol",
@@ -687,7 +957,14 @@ const DRUG_DATA = [
     "yanEtki": "Gastrointestinal yan etkiler, QTc uzaması, hipokalemi, transaminaz yüksekliği; CYP3A4 inhibitörüdür.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Hepatik (UGT ile glukuronidasyon); %66 değişmeden feçesle atılır"
+    "eliminasyon": "Hepatik (UGT ile glukuronidasyon); %66 değişmeden feçesle atılır",
+    "markalar": [
+      "Fugafyl",
+      "Noxafil",
+      "Posagil",
+      "Posaksin",
+      "Posectio"
+    ]
   },
   {
     "slug": "amfoterisin-b-deoksikolat",
@@ -705,7 +982,10 @@ const DRUG_DATA = [
     "yanEtki": "Ağır nefrotoksisite (renal tübüler asidoz, hipokalemi/hipomagnezemi); şiddetli infüzyon reaksiyonu \"shake and bake\" (ateş, titreme, bronkospazm, hipotansiyon); hızlı infüzyonda kardiyak arrest riski. Premedikasyon ve pre-hidratasyon (500 mL %0.9 NaCl) gerekir.",
     "nefroSeviye": "Yüksek",
     "nefroNot": "Şiddetli vazokonstriksiyon, RTA, masif K/Mg kaybı; Lipozomal forma göre çok daha nefrotoksik",
-    "eliminasyon": "Dokularda geniş dağılır; karaciğer ve böbrek yoluyla aylar süren çok yavaş eliminasyon"
+    "eliminasyon": "Dokularda geniş dağılır; karaciğer ve böbrek yoluyla aylar süren çok yavaş eliminasyon",
+    "markalar": [
+      "Fungizone"
+    ]
   },
   {
     "slug": "flusitozin",
@@ -723,7 +1003,10 @@ const DRUG_DATA = [
     "yanEtki": "Şiddetli ve ölümcül kemik iliği baskılanması (nötropeni, anemi, trombositopeni, aplastik anemi); ciddi enterokolit, diyare, hepatotoksisite. TDM zorunlu: serum zirve düzeyi 25-50 µg/mL tutulmalı (>100 µg/mL ölümcül toksiktir).",
     "nefroSeviye": "Düşük",
     "nefroNot": "Nefrotoksik değildir ancak böbrek yetmezliğinde ilaç birikimi toksisiteyi artırır",
-    "eliminasyon": "Renal (%90'dan fazlası değişmeden idrarla atılır)"
+    "eliminasyon": "Renal (%90'dan fazlası değişmeden idrarla atılır)",
+    "markalar": [
+      "Ancotil"
+    ]
   },
   {
     "slug": "asiklovir",
@@ -741,7 +1024,19 @@ const DRUG_DATA = [
     "yanEtki": "Kristal nefropatisi/akut renal hasar (hızlı infüzyonda tübüllerde çökme; yavaş infüzyon + bol IV salin ile önlenir), nörotoksisite (konfüzyon, halüsinasyon, tremor, ajitasyon, nöbet — özellikle doz ayarı yapılmayan renal yetmezlikte).",
     "nefroSeviye": "Orta",
     "nefroNot": "Kristal nefropatisi riski; yavaş infüzyon ve hidratasyon şart",
-    "eliminasyon": "Renal (%80-90 değişmeden böbreklerden); BOS'a geçişi iyidir (plazmanın %50'si)"
+    "eliminasyon": "Renal (%80-90 değişmeden böbreklerden); BOS'a geçişi iyidir (plazmanın %50'si)",
+    "markalar": [
+      "Aklovir",
+      "Asimplex",
+      "Asirax",
+      "Asivir",
+      "Asiviral",
+      "Hernovir",
+      "Herpevis",
+      "Klovireks",
+      "Zovalox",
+      "Zovirax"
+    ]
   },
   {
     "slug": "valasiklovir",
@@ -759,7 +1054,13 @@ const DRUG_DATA = [
     "yanEtki": "Yüksek dozda (özellikle renal yetmezlikte) trombotik mikroanjiyopati (nadir, immünsüprese hastada), bulantı, baş ağrısı, nörotoksisite (asiklovire benzer).",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Hızla asiklovire dönüştürülür; renal yolla atılır"
+    "eliminasyon": "Hızla asiklovire dönüştürülür; renal yolla atılır",
+    "markalar": [
+      "Valtrex",
+      "Valzer",
+      "Vaxvire",
+      "Viromed"
+    ]
   },
   {
     "slug": "gansiklovir",
@@ -777,7 +1078,15 @@ const DRUG_DATA = [
     "yanEtki": "Ağır kemik iliği baskılanması (doza bağımlı, geri dönüşlü nötropeni %20-40, trombositopeni, anemi — hemogram takibi zorunlu), SSS toksisitesi (baş ağrısı, konfüzyon, tremor, ajitasyon, nöbet).",
     "nefroSeviye": "Orta",
     "nefroNot": "",
-    "eliminasyon": "Renal (%90'dan fazlası değişmeden)"
+    "eliminasyon": "Renal (%90'dan fazlası değişmeden)",
+    "markalar": [
+      "Cymevene",
+      "Gansilor",
+      "Lotavir",
+      "Msglovir",
+      "Sikloford",
+      "Tamovir"
+    ]
   },
   {
     "slug": "valgansiklovir",
@@ -795,7 +1104,13 @@ const DRUG_DATA = [
     "yanEtki": "Gansiklovir ile benzer ağır kemik iliği baskılanması (nötropeni, trombositopeni, anemi); hemogram takibi gerekir.",
     "nefroSeviye": "Orta",
     "nefroNot": "",
-    "eliminasyon": "Hızla gansiklovire dönüştürülür; renal yolla atılır"
+    "eliminasyon": "Hızla gansiklovire dönüştürülür; renal yolla atılır",
+    "markalar": [
+      "Avalcept",
+      "Citovir",
+      "Valcyte",
+      "Valganir"
+    ]
   },
   {
     "slug": "foskarnet",
@@ -813,7 +1128,10 @@ const DRUG_DATA = [
     "yanEtki": "Şiddetli nefrotoksisite (%30-50'sinde akut tübüler nekroz), derin kalsiyum/elektrolit bozuklukları (ağır hipokalsemi, hipomagnezemi, hipokalemi, hipo/hiperfosfatemi → tetani, dirençli aritmiler, nöbet), ağır penil/vajinal ülserasyonlar. Masif IV salin yüklemesi ve yakın elektrolit takibi gerekir.",
     "nefroSeviye": "Yüksek",
     "nefroNot": "Ağır nefrotoksisite + elektrolit krizleri; çok sıkı titrasyon ve izlem şart",
-    "eliminasyon": "Renal (%80-90 değişmeden); kemik dokusunda depolanıp yavaşça salınabilir"
+    "eliminasyon": "Renal (%80-90 değişmeden); kemik dokusunda depolanıp yavaşça salınabilir",
+    "markalar": [
+      "Foscavir"
+    ]
   },
   {
     "slug": "sidofovir",
@@ -831,7 +1149,10 @@ const DRUG_DATA = [
     "yanEtki": "Ağır doza bağımlı nefrotoksisite (proksimal tübüler hasar/Fanconi sendromu), nötropeni (%20), irit/üveit, oküler hipotoni.",
     "nefroSeviye": "Yüksek",
     "nefroNot": "Probenesid + IV hidratasyon protokolü ZORUNLU; protokolsüz uygulanmaz",
-    "eliminasyon": "Renal (değişmeden, aktif tübüler sekresyonla)"
+    "eliminasyon": "Renal (değişmeden, aktif tübüler sekresyonla)",
+    "markalar": [
+      "Vistide"
+    ]
   },
   {
     "slug": "oseltamivir",
@@ -849,7 +1170,21 @@ const DRUG_DATA = [
     "yanEtki": "Bulantı, kusma (NG tüpten verilirken gastrik irritasyon; besinle birlikte vermek toleransı artırır).",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Karaciğerde aktif metabolit oseltamivir karboksilata dönüşür; %90 böbrekler yoluyla atılır"
+    "eliminasyon": "Karaciğerde aktif metabolit oseltamivir karboksilata dönüşür; %90 böbrekler yoluyla atılır",
+    "markalar": [
+      "Cyovel",
+      "Enfluvir",
+      "Enzaflu",
+      "Etamivir",
+      "Fluzavir",
+      "Novavir",
+      "Oseflu",
+      "Oselmir",
+      "Ovireflu",
+      "Reliflu",
+      "Seltavir",
+      "Tamiflu"
+    ]
   },
   {
     "slug": "peramivir",
@@ -867,7 +1202,10 @@ const DRUG_DATA = [
     "yanEtki": "İshal, nöropati, transaminaz yüksekliği, nötropeni.",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Renal (değişmeden)"
+    "eliminasyon": "Renal (değişmeden)",
+    "markalar": [
+      "Rapivab"
+    ]
   },
   {
     "slug": "remdesivir",
@@ -885,7 +1223,10 @@ const DRUG_DATA = [
     "yanEtki": "Transaminaz (ALT/AST) yükseklikleri, infüzyon sırasında bradikardi ve hipotansiyon.",
     "nefroSeviye": "Düşük",
     "nefroNot": "eGFR <30'da teorik SBECD birikim riski; kısa süreli kullanımda klinik fayda ön planda",
-    "eliminasyon": "Hepatik metabolizma; aktif metabolit renal yolla atılır"
+    "eliminasyon": "Hepatik metabolizma; aktif metabolit renal yolla atılır",
+    "markalar": [
+      "Veklury"
+    ]
   },
   {
     "slug": "ribavirin",
@@ -903,6 +1244,10 @@ const DRUG_DATA = [
     "yanEtki": "Şiddetli hemolitik anemi (sistemik kullanımda doz kısıtlayıcı), ŞİDDETLİ TERATOJENİTE (gebe sağlık personelinin inhaler uygulama odasına girmesi kesinlikle yasaktır), aerosolize formda ventilatör ekspiryum filtrelerinin tıkanması (filtreler sık değiştirilmeli).",
     "nefroSeviye": "Düşük",
     "nefroNot": "",
-    "eliminasyon": "Alyuvar içi depolardan böbrek ve karaciğer yoluyla çok yavaş elimine edilir"
+    "eliminasyon": "Alyuvar içi depolardan böbrek ve karaciğer yoluyla çok yavaş elimine edilir",
+    "markalar": [
+      "Copegus",
+      "Rebetol"
+    ]
   }
 ];
