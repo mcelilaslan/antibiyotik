@@ -70,9 +70,9 @@
     brandMap = {};
     textCache = {};
     drugs.forEach(function (d) {
-      (d.markalar || []).concat((d.pazar || "").split(",")).forEach(function (b) {
+      (d.markalar || []).forEach(function (b) {
         tokenize(b).forEach(function (t) {
-          if (!brandMap[t]) brandMap[t] = d;
+          if (t.length >= 4 && !brandMap[t]) brandMap[t] = d;
         });
       });
     });
