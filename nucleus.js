@@ -300,11 +300,23 @@
     return null;
   }
 
+  function cellText(cell) {
+    var parts = [];
+    var walker = document.createTreeWalker(cell, NodeFilter.SHOW_TEXT, null);
+    var node;
+    while ((node = walker.nextNode())) {
+      if (node.parentElement && node.parentElement.closest(".abx-btn")) continue;
+      var t = (node.nodeValue || "").trim();
+      if (t) parts.push(t);
+    }
+    return parts.join(" ");
+  }
+
   function decorateCells() {
     var cells = queryAllDeep("vaadin-grid-cell-content", document);
     for (var i = 0; i < cells.length; i++) {
       var cell = cells[i];
-      var text = (cell.textContent || "").trim();
+      var text = cellText(cell);
       var drug = text ? findDrug(text) : null;
       var button = cell.querySelector(".abx-btn");
 
