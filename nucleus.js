@@ -1,6 +1,8 @@
 (function () {
-  if (window.__abxInstalled) {
-    alert("Antibiyotik eklentisi zaten aktif.");
+  if (window.__abxDispose) {
+    try { window.__abxDispose(); } catch (e) {}
+  } else if (window.__abxInstalled) {
+    alert("Eski antibiyotik eklentisi sayfada açık kalmış. Sayfayı yenileyip (F5) bookmark'a tekrar tıklayın.");
     return;
   }
   window.__abxInstalled = true;
@@ -473,13 +475,32 @@
     window.addEventListener(type, guardPanelEvent, true);
   });
 
-  document.addEventListener("keydown", function (e) {
+  function onEscape(e) {
     if (e.key === "Escape") closePanel();
-  }, true);
+  }
+  document.addEventListener("keydown", onEscape, true);
+
+  var timer = null;
+  var disposed = false;
+
+  window.__abxDispose = function () {
+    disposed = true;
+    if (timer) clearInterval(timer);
+    ["pointerdown", "pointerup", "mousedown", "mouseup", "click"].forEach(function (type) {
+      window.removeEventListener(type, guardPanelEvent, true);
+    });
+    document.removeEventListener("keydown", onEscape, true);
+    closePanel();
+    var pills = queryAllDeep("span", document).filter(function (s) { return s.className === "abx-btn"; });
+    pills.forEach(function (s) { s.remove(); });
+    var badge = document.getElementById("abx-status-badge");
+    if (badge) badge.remove();
+  };
 
   loadData(false, function (data) {
+    if (disposed) return;
     applyData(data);
     decorateCells();
-    setInterval(tick, SCAN_INTERVAL_MS);
+    timer = setInterval(tick, SCAN_INTERVAL_MS);
   });
 })();
