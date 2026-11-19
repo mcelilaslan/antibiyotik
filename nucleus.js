@@ -68,6 +68,7 @@
 
   function buildIndex() {
     brandMap = {};
+    textCache = {};
     drugs.forEach(function (d) {
       (d.markalar || []).concat((d.pazar || "").split(",")).forEach(function (b) {
         tokenize(b).forEach(function (t) {
@@ -330,12 +331,62 @@
     }
   }
 
+  var textCache = {};
+
+  function collectTextNodes(root, out) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var node;
+    while ((node = walker.nextNode())) out.push(node);
+    var all = root.querySelectorAll("*");
+    for (var i = 0; i < all.length; i++) {
+      if (all[i].shadowRoot) collectTextNodes(all[i].shadowRoot, out);
+    }
+    return out;
+  }
+
+  function makePill(drug) {
+    var pill = document.createElement("span");
+    pill.className = "abx-btn";
+    pill.textContent = "💊";
+    pill.title = "Antibiyotik bilgisi: " + drug.etken;
+    pill.setAttribute("data-slug", drug.slug);
+    pill.style.cssText = "cursor:pointer;margin-left:6px;font-size:13px;";
+    pill.addEventListener("click", function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var target = drugBySlug(this.getAttribute("data-slug"));
+      if (target) openPanel(target);
+    });
+    return pill;
+  }
+
+  function decorateText() {
+    var nodes = collectTextNodes(document.body, []);
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i];
+      var text = (node.nodeValue || "").trim();
+      if (text.length < 5 || text.length > 200) continue;
+      var parent = node.parentElement;
+      if (!parent || parent.closest("#abx-info-panel, #abx-panel-backdrop, #abx-status-badge, script, style, vaadin-grid-cell-content")) continue;
+      if (parent.querySelector(".abx-btn")) continue;
+      if (!(text in textCache)) {
+        var found = findDrug(text);
+        textCache[text] = found ? found.slug : null;
+      }
+      var slug = textCache[text];
+      if (!slug) continue;
+      var drug = drugBySlug(slug);
+      if (drug) parent.insertBefore(makePill(drug), node.nextSibling);
+    }
+  }
+
   function tick() {
     if (document.getElementById("abx-info-panel")) {
       keepPanelOnTop();
       return;
     }
     decorateCells();
+    decorateText();
   }
 
   function readCache() {
