@@ -37,6 +37,12 @@ const DRUG_DATA = [
       "Tazoject",
       "Tazoper",
       "Tipraxin"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob",
+      "Anaerob"
     ]
   },
   {
@@ -68,6 +74,11 @@ const DRUG_DATA = [
       "Maxipime",
       "Roxipime",
       "Unisef"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob"
     ]
   },
   {
@@ -99,6 +110,10 @@ const DRUG_DATA = [
     ],
     "markalar": [
       "Zavicefta"
+    ],
+    "kapsama": [
+      "Gr-",
+      "Aerob"
     ]
   },
   {
@@ -134,6 +149,12 @@ const DRUG_DATA = [
       "Sulperazon",
       "Sulzon",
       "Zonactam"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob",
+      "Anaerob"
     ]
   },
   {
@@ -174,6 +195,12 @@ const DRUG_DATA = [
       "Mopem",
       "Mopen",
       "Penerem"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob",
+      "Anaerob"
     ]
   },
   {
@@ -205,6 +232,12 @@ const DRUG_DATA = [
       "Rivona",
       "Silanem",
       "Tienam"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob",
+      "Anaerob"
     ]
   },
   {
@@ -247,6 +280,10 @@ const DRUG_DATA = [
       "Vankomyl",
       "Vankopol",
       "Vankurais"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Aerob"
     ]
   },
   {
@@ -289,6 +326,10 @@ const DRUG_DATA = [
       "Tekosit",
       "Teoplan",
       "Tizoles"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Aerob"
     ]
   },
   {
@@ -326,6 +367,10 @@ const DRUG_DATA = [
       "Daptopol",
       "Dupcin",
       "Xapto"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Aerob"
     ]
   },
   {
@@ -368,6 +413,10 @@ const DRUG_DATA = [
       "Polinoksid",
       "Zizolid",
       "Zyvoxid"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Aerob"
     ]
   },
   {
@@ -412,6 +461,10 @@ const DRUG_DATA = [
       "Kolistate",
       "Kolistipol",
       "Sodkolis"
+    ],
+    "kapsama": [
+      "Gr-",
+      "Aerob"
     ]
   },
   {
@@ -439,6 +492,10 @@ const DRUG_DATA = [
     ],
     "markalar": [
       "Polix"
+    ],
+    "kapsama": [
+      "Gr-",
+      "Aerob"
     ]
   },
   {
@@ -477,6 +534,10 @@ const DRUG_DATA = [
       "Kacin",
       "Mikasin",
       "Ryofel"
+    ],
+    "kapsama": [
+      "Gr-",
+      "Aerob"
     ]
   },
   {
@@ -520,6 +581,12 @@ const DRUG_DATA = [
       "Tygacil",
       "Tygepol",
       "Tygex"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob",
+      "Anaerob"
     ]
   },
   {
@@ -567,6 +634,11 @@ const DRUG_DATA = [
       "Siproject",
       "Siprosan",
       "Vonecip"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob"
     ]
   },
   {
@@ -624,6 +696,11 @@ const DRUG_DATA = [
       "Ravivo",
       "Tavanic",
       "Voleflok"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob"
     ]
   },
   {
@@ -670,6 +747,12 @@ const DRUG_DATA = [
       "Moxitec",
       "Pitoxil",
       "Pnemox"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob",
+      "Anaerob"
     ]
   },
   {
@@ -712,6 +795,9 @@ const DRUG_DATA = [
       "Neofleks",
       "Nidazol",
       "Turkfleks"
+    ],
+    "kapsama": [
+      "Anaerob"
     ]
   },
   {
@@ -744,6 +830,11 @@ const DRUG_DATA = [
     "markalar": [
       "Bactrim",
       "Trimoks"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob"
     ]
   },
   {

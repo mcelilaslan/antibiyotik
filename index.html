@@ -45,10 +45,25 @@
 
     <main class="main">
       <p class="result-count" id="resultCount"></p>
-      <div class="legend-note">
-        <span class="legend-item"><span class="legend-dot" style="background:var(--risk-low)"></span>Düşük nefrotoksisite</span>
-        <span class="legend-item"><span class="legend-dot" style="background:var(--risk-mid)"></span>Orta</span>
-        <span class="legend-item"><span class="legend-dot" style="background:var(--risk-high)"></span>Yüksek</span>
+      <div class="filter-panel">
+        <div class="filter-group">
+          <span class="filter-label">Nefrotoksisite</span>
+          <div class="filter-chips" id="riskFilter">
+            <button class="fchip" data-risk="low"><span class="legend-dot" style="background:var(--risk-low)"></span>Düşük</button>
+            <button class="fchip" data-risk="mid"><span class="legend-dot" style="background:var(--risk-mid)"></span>Orta</button>
+            <button class="fchip" data-risk="high"><span class="legend-dot" style="background:var(--risk-high)"></span>Yüksek</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Kapsama</span>
+          <div class="filter-chips" id="covFilter">
+            <button class="fchip" data-cov="Gr+">Gr+</button>
+            <button class="fchip" data-cov="Gr-">Gr−</button>
+            <button class="fchip" data-cov="Aerob">Aerob</button>
+            <button class="fchip" data-cov="Anaerob">Anaerob</button>
+          </div>
+        </div>
+        <button class="filter-clear" id="clearFilters" style="display:none">Filtreleri temizle</button>
       </div>
       <div id="categoryList"></div>
       <div class="empty-state" id="emptyState" style="display:none">

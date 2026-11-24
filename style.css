@@ -692,3 +692,102 @@ button {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+
+/* ---------- Filtreler ve kapsama etiketleri ---------- */
+
+.filter-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  flex: 0 0 96px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-faint);
+}
+
+.filter-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.fchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.fchip.active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+[data-theme="dark"] .fchip.active,
+:root:not([data-theme="light"]) .fchip.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .fchip.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+}
+
+.filter-clear {
+  align-self: flex-start;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 2px 0;
+}
+
+.cov-badges { display: inline-flex; gap: 4px; flex: 0 0 auto; }
+.cov-detail { margin-right: 6px; }
+
+.cov {
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+.cov-gp { color: #2f6db5; }
+.cov-gn { color: #c2410c; }
+.cov-ae { color: #3f8f5f; }
+.cov-an { color: #7c4dbd; }
+
+@media (max-width: 520px) {
+  .drug-row .cov-badges { flex-wrap: wrap; justify-content: flex-end; max-width: 104px; row-gap: 3px; gap: 3px; }
+  .drug-row .cov { font-size: 0.6rem; padding: 3px 5px; }
+  .filter-label { flex-basis: 100%; }
+}
+
+[data-theme="dark"] .cov-gp { color: #7fb0ea; }
+[data-theme="dark"] .cov-gn { color: #f59a6a; }
+[data-theme="dark"] .cov-ae { color: #6fcf97; }
+[data-theme="dark"] .cov-an { color: #b79af0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cov-gp { color: #7fb0ea; }
+  :root:not([data-theme="light"]) .cov-gn { color: #f59a6a; }
+  :root:not([data-theme="light"]) .cov-ae { color: #6fcf97; }
+  :root:not([data-theme="light"]) .cov-an { color: #b79af0; }
+}

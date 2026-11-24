@@ -40,8 +40,25 @@
   var state = {
     query: "",
     activeCategory: "all",
+    risks: {},
+    covs: {},
     openCategories: {} // kategori -> bool
   };
+
+  var COV_LABEL = { "Gr+": "Gr+", "Gr-": "Gr−", "Aerob": "Aerob", "Anaerob": "Anaerob" };
+  var COV_CLASS = { "Gr+": "gp", "Gr-": "gn", "Aerob": "ae", "Anaerob": "an" };
+
+  function coverageBadges(drug, extraClass) {
+    if (!drug.kapsama || !drug.kapsama.length) return "";
+    return '<span class="cov-badges' + (extraClass ? " " + extraClass : "") + '">' +
+      drug.kapsama.map(function (k) {
+        return '<span class="cov cov-' + COV_CLASS[k] + '">' + escapeHtml(COV_LABEL[k] || k) + "</span>";
+      }).join("") + "</span>";
+  }
+
+  function hasFilters() {
+    return Object.keys(state.risks).length > 0 || Object.keys(state.covs).length > 0;
+  }
 
   /* ---------------- Yardımcılar ---------------- */
 
@@ -73,6 +90,12 @@
   function filteredDrugs() {
     return DRUG_DATA.filter(function (d) {
       if (state.activeCategory !== "all" && d.kategori !== state.activeCategory) return false;
+      var riskKeys = Object.keys(state.risks);
+      if (riskKeys.length && !state.risks[RISK_CLASS[d.nefroSeviye] || "mid"]) return false;
+      var covKeys = Object.keys(state.covs);
+      for (var i = 0; i < covKeys.length; i++) {
+        if (!d.kapsama || d.kapsama.indexOf(covKeys[i]) === -1) return false;
+      }
       return matchesQuery(d, state.query);
     });
   }
@@ -149,7 +172,7 @@
     var grouped = byCategory(drugs);
     var totalShown = drugs.length;
 
-    els.resultCount.textContent = state.query || state.activeCategory !== "all"
+    els.resultCount.textContent = state.query || state.activeCategory !== "all" || hasFilters()
       ? totalShown + " sonuç"
       : totalShown + " antibiyotik, 5 grup";
 
@@ -159,7 +182,7 @@
       var items = grouped[cat] || [];
       if (!items.length) return "";
       var sample = items[0];
-      var isOpen = state.query || state.activeCategory !== "all" || state.openCategories[cat];
+      var isOpen = state.query || state.activeCategory !== "all" || hasFilters() || state.openCategories[cat];
 
       var rows = items.map(function (d) {
         var riskClass = RISK_CLASS[d.nefroSeviye] || "mid";
@@ -170,6 +193,7 @@
           '<p class="name">' + escapeHtml(d.etken) + "</p>" +
           '<p class="brand">' + escapeHtml(d.pazar) + "</p>" +
           "</span>" +
+          coverageBadges(d) +
           '<span class="risk-dot" title="Nefrotoksisite: ' + escapeHtml(d.nefroSeviye) + '" style="background:var(--risk-' + riskClass + ');color:var(--risk-' + riskClass + ')"></span>' +
           '<svg class="chevron-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>' +
           "</button>"
@@ -227,6 +251,7 @@
       "<h2>" + escapeHtml(drug.etken) + "</h2>" +
       '<div class="brand-pills">' + brandPills + "</div>" +
       '<div class="badge-row">' +
+      coverageBadges(drug, "cov-detail") +
       '<span class="risk-badge" style="background:var(--risk-' + riskClass + '-bg);color:var(--risk-' + riskClass + ')"><span class="dot"></span>Nefrotoksisite: ' + escapeHtml(drug.nefroSeviye) + "</span>" +
       "</div>" +
       "</div>" +
@@ -326,6 +351,43 @@
     if (!btn) return;
     state.activeCategory = btn.getAttribute("data-cat");
     renderChips();
+    renderList();
+  });
+
+  function syncFilterUi() {
+    Array.prototype.forEach.call(document.querySelectorAll("#riskFilter .fchip"), function (b) {
+      b.classList.toggle("active", !!state.risks[b.getAttribute("data-risk")]);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll("#covFilter .fchip"), function (b) {
+      b.classList.toggle("active", !!state.covs[b.getAttribute("data-cov")]);
+    });
+    document.getElementById("clearFilters").style.display = hasFilters() ? "block" : "none";
+  }
+
+  function toggleKey(map, key) {
+    if (map[key]) delete map[key]; else map[key] = true;
+  }
+
+  document.getElementById("riskFilter").addEventListener("click", function (e) {
+    var b = e.target.closest(".fchip");
+    if (!b) return;
+    toggleKey(state.risks, b.getAttribute("data-risk"));
+    syncFilterUi();
+    renderList();
+  });
+
+  document.getElementById("covFilter").addEventListener("click", function (e) {
+    var b = e.target.closest(".fchip");
+    if (!b) return;
+    toggleKey(state.covs, b.getAttribute("data-cov"));
+    syncFilterUi();
+    renderList();
+  });
+
+  document.getElementById("clearFilters").addEventListener("click", function () {
+    state.risks = {};
+    state.covs = {};
+    syncFilterUi();
     renderList();
   });
 
