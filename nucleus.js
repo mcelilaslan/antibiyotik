@@ -217,6 +217,21 @@
       "</span>";
   }
 
+  var COVERAGE = {
+    "Gr+": { label: "Gr+", fg: "#2f6db5", bg: "#e3eefa" },
+    "Gr-": { label: "Gr\u2212", fg: "#c2410c", bg: "#fdeadf" },
+    "Aerob": { label: "Aerob", fg: "#2f7d52", bg: "#e1f3e8" },
+    "Anaerob": { label: "Anaerob", fg: "#6d3fb0", bg: "#ede6f8" }
+  };
+
+  function coverageBadges(drug) {
+    return (drug.kapsama || []).map(function (k) {
+      var c = COVERAGE[k];
+      if (!c) return "";
+      return '<span style="font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:' + c.bg + ";color:" + c.fg + ';">' + c.label + "</span>";
+    }).join("");
+  }
+
   function panelHtml(drug) {
     return '<div style="position:sticky;top:0;background:' + THEME.header + ';color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:flex-start;z-index:1;">' +
       "<div>" +
@@ -227,7 +242,7 @@
       '<span id="abx-close" style="cursor:pointer;font-size:22px;line-height:1;padding:4px 8px;font-weight:700;">&times;</span>' +
       "</div>" +
       '<div style="padding:10px 16px 6px;display:flex;justify-content:space-between;align-items:center;gap:8px;">' +
-      riskBadge(drug) +
+      '<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">' + riskBadge(drug) + coverageBadges(drug) + "</div>" +
       '<button id="abx-close2" style="cursor:pointer;background:#e8ecf1;color:#1f2937;border:1px solid #b8c1cc;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:600;">Kapat (Esc)</button>' +
       "</div>" +
       '<div style="padding:6px 16px 18px;">' +
