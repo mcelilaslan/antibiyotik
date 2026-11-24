@@ -241,6 +241,34 @@ const DRUG_DATA = [
     ]
   },
   {
+    "slug": "ertapenem",
+    "kategori": "BETA-LAKTAMLAR",
+    "kategoriKisa": "Beta-Laktamlar",
+    "kategoriRenk": "blue",
+    "grup": "Karbapenem (Grup 1)",
+    "etken": "Ertapenem",
+    "pazar": "Invanz, Ekiperta",
+    "ozellikler": "PBP-2 ve PBP-3'e bağlanarak hızlı bakterisidal etki gösterir. ESBL ve AmpC üreten Enterobacterales (E. coli, Klebsiella, Proteus, Enterobacter), anaeroplar (B. fragilis grubu, Fusobacterium, Peptostreptococcus, Clostridium; C. difficile hariç), MSSA ve S. pneumoniae üzerinde etkilidir. Anaerop kapsamı mükemmeldir, ayrıca metronidazol eklenmesi gerekmez. Yarı ömrü yaklaşık 4.5 saattir ve günde tek doz uygulanır. Plazma albüminine %95 bağlanır.",
+    "endikasyon": "Komplike intraabdominal enfeksiyon (monoterapi), P. aeruginosa şüphesi olmayan ESBL (+) ürosepsis ve komplike İYE, karbapenem koruyucu de-eskalasyon (ampirik meropenem sonrası Pseudomonas/Acinetobacter dışı ESBL (+) Enterobacterales üremesi). Hedefe yönelik ve de-eskalasyon ilacıdır; VAP ve septik şokta ampirik yeri yoktur.",
+    "standartDoz": "1 g IV q24h (30 dakikalık infüzyon)\nPD hedefi: Zamana bağımlı etki, serbest ilaç MIC üzerinde kalma süresi (karbapenemler için doz aralığının >%40'ı).\nHipoalbüminemi uyarısı: Albümin <2.5 g/dL ise serbest fraksiyon artar ve hızla atılır; doz aralığının son saatlerinde (18-24. saat) ilaç düzeyi MIC altına düşebilir.",
+    "renalDoz": "CrCl >30: 1 g IV q24h (30 dk infüzyon).\nCrCl <30: 500 mg IV q24h (doz %50 azaltılır).\nİHD: 500 mg IV q24h, diyalizden sonra verilir. Doz diyalizden <6 saat önce verildiyse seans sonrası 150 mg ek doz gerekir.\nCRRT: 500 mg - 1 g IV q24h; filtre klirensi ve atık hacmine göre titre edilir.",
+    "sinirlamalar": "Pseudomonas aeruginosa, Acinetobacter baumannii ve Enterococcus türlerine (E. faecium, E. faecalis) etkisizdir. MRSA ve Stenotrophomonas maltophilia doğal dirençlidir. Valproik asit alan hastada kesinlikle kullanılmamalıdır; valproat düzeyi dakikalar içinde sıfıra iner ve nöbet riski artar.",
+    "yanEtki": "Nöbet riski düşüktür (<%0.1-0.3), ancak ileri yaş, SSS patolojisi (inme, travma, kitle) veya dozu azaltılmamış böbrek yetmezliğinde ensefalopati, konfüzyon, miyoklonus ve non-konvülzif nöbet görülebilir. Karbapenemler valproik asit düzeyini hızla düşürür. Geçici hafif-orta transaminaz yüksekliği, bulantı ve kusma olabilir. Penisilin anafilaksisi öyküsünde çapraz reaksiyon riski minimaldir.",
+    "nefroSeviye": "Düşük",
+    "nefroNot": "",
+    "eliminasyon": "Ağırlıklı olarak renal. Yarı ömür yaklaşık 4.5 saat, plazma protein bağlanması %95.",
+    "markalar": [
+      "Invanz",
+      "Ekiperta"
+    ],
+    "kapsama": [
+      "Gr+",
+      "Gr-",
+      "Aerob",
+      "Anaerob"
+    ]
+  },
+  {
     "slug": "vankomisin",
     "kategori": "GLİKOPEPTİTLER / LİPOPEPTİTLER / LİNEZOLİD",
     "kategoriKisa": "Glikopeptit / Lipopeptit / Linezolid",
