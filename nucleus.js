@@ -345,18 +345,7 @@
       if (button && button.getAttribute("data-slug") === drug.slug) continue;
       if (button) button.remove();
 
-      var pill = document.createElement("span");
-      pill.className = "abx-btn";
-      pill.textContent = "💊";
-      pill.title = "Antibiyotik bilgisi: " + drug.etken;
-      pill.setAttribute("data-slug", drug.slug);
-      pill.style.cssText = "cursor:pointer;margin-left:6px;font-size:13px;";
-      pill.addEventListener("click", function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        var target = drugBySlug(this.getAttribute("data-slug"));
-        if (target) openPanel(target);
-      });
+      var pill = makePill(drug);
       cell.appendChild(pill);
     }
   }
@@ -374,13 +363,21 @@
     return out;
   }
 
+  function miniBadges(drug) {
+    return (drug.kapsama || []).map(function (k) {
+      var c = COVERAGE[k];
+      if (!c) return "";
+      return '<span style="font-size:10px;font-weight:700;line-height:1;padding:3px 5px;border-radius:8px;background:' + c.bg + ";color:" + c.fg + ';">' + c.label + "</span>";
+    }).join("");
+  }
+
   function makePill(drug) {
     var pill = document.createElement("span");
     pill.className = "abx-btn";
-    pill.textContent = "💊";
     pill.title = "Antibiyotik bilgisi: " + drug.etken;
     pill.setAttribute("data-slug", drug.slug);
-    pill.style.cssText = "cursor:pointer;margin-left:6px;font-size:13px;";
+    pill.style.cssText = "cursor:pointer;margin-left:6px;display:inline-flex;align-items:center;gap:3px;vertical-align:middle;";
+    pill.innerHTML = '<span style="font-size:13px;">💊</span>' + miniBadges(drug);
     pill.addEventListener("click", function (e) {
       e.stopPropagation();
       e.preventDefault();
@@ -397,7 +394,7 @@
       var text = (node.nodeValue || "").trim();
       if (text.length < 5 || text.length > 200) continue;
       var parent = node.parentElement;
-      if (!parent || parent.closest("#abx-info-panel, #abx-panel-backdrop, #abx-status-badge, script, style, vaadin-grid-cell-content")) continue;
+      if (!parent || parent.closest("#abx-info-panel, #abx-panel-backdrop, #abx-status-badge, .abx-btn, script, style, vaadin-grid-cell-content")) continue;
       if (parent.querySelector(".abx-btn")) continue;
       if (!(text in textCache)) {
         var found = findDrug(text);
