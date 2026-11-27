@@ -102,7 +102,7 @@
           }
         }
       }
-      if (score > 0 && (score > bestScore || (score === bestScore && (!best || entry.tokens.length > best.tokens.length)))) {
+      if (score > 0 && (score > bestScore || (score === bestScore && best && entry.tokens.length < best.tokens.length))) {
         best = entry;
         bestScore = score;
       }
