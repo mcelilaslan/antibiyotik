@@ -53,11 +53,11 @@ const DRUG_DATA = [
     "grup": "4. Kuşak Sefalosporin",
     "etken": "Sefepim",
     "pazar": "Unisef, Maxipime",
-    "ozellikler": "Geniş Gram-negatif spektrum (Pseudomonas dahil), iyi Gram-pozitif kapsama. Kromozomal AmpC üreten Enterobacter, Serratia ve Citrobacter suşlarına etkilidir.",
-    "endikasyon": "Nötropenik ateş, nozokomiyal pnömoni, sepsis.",
-    "standartDoz": "Düşük Doz: 1-2 g q12h IV (Hafif-orta İYE, intraabdominal)\nYüksek Doz: 2 g q8h IV (Psödomonal enfeksiyonlar, nötropenik ateş, ağır VAP)",
+    "ozellikler": "Geniş Gram-negatif spektrum (Pseudomonas dahil), iyi Gram-pozitif kapsama. Kromozomal AmpC üreten Enterobacter, Serratia ve Citrobacter suşlarına etkilidir. Zwitterion yapısı sayesinde dış membran porinlerinden hızlı geçer. Kromozomal AmpC hidrolizine dirençlidir ve ESCAPPM grubunda karbapenem esirgeyici seçenektir. Seftazidimin aksine MSSA ve S. pneumoniae üzerinde güçlüdür. Direnç potansiyeli düşüktür: MRSA kolonizasyonunu körüklemez, P. aeruginosa direnci oluşturma riski düşüktür. Zamana bağımlı bakterisidal etki gösterir.",
+    "endikasyon": "Nötropenik ateş, nozokomiyal pnömoni (HAP/VAP), sepsis, ürosepsis, komplike intraabdominal enfeksiyon (metronidazol ile), hastane kaynaklı menenjit/ventrikülit.",
+    "standartDoz": "Düşük Doz: 1-2 g q12h IV (Hafif-orta İYE, intraabdominal)\nYüksek Doz: 2 g q8h IV (Psödomonal enfeksiyonlar, nötropenik ateş, ağır VAP)\nMenenjit / SSS: 2 g q8h IV (meningeal doz)\nUzatılmış infüzyon: Bakteriyel öldürmeyi artırmak için 3-4 saatlik uzatılmış infüzyon önerilir.",
     "renalDoz": "CrCl >50: Doz ayarı gerekmez.\nCrCl 30-50: 2 g q12h IV.\nCrCl 11-29: 2 g q24h IV.\nCrCl <11: 1 g q24h IV.\nCRRT: 2 g q12h IV.",
-    "sinirlamalar": "Anaerobik etkinliği yoktur (Metronidazol eklenmelidir); MRSA, VRE, ESBL ve atipiklere etkisizdir.",
+    "sinirlamalar": "Anaerobik etkinliği yoktur (Metronidazol eklenmelidir); MRSA, VRE, ESBL ve atipiklere etkisizdir. Acinetobacter ve Listeria doğal dirençlidir; yüksek bakteri yükünde ESBL üreten suşlarda klinik başarısızlık riski vardır.",
     "yanEtki": "Sefepim Ensefalopatisi (ajitasyon, miyoklonus, NCSE), ilaç ateşi. Doz ayarı yapılmayan renal yetmezlikte (CrCl <60) kan-beyin bariyerini geçip SSS'de birikir, GABA-A reseptörlerini antagonize eder; EEG'de trifazik dalgalarla seyreden NCSE yapabilir. Bilinç değişikliğinde ilaç derhal kesilmeli ve acil EEG çekilmelidir.",
     "nefroSeviye": "Düşük",
     "nefroNot": "Renal birikimde nörotoksiktir",
@@ -66,6 +66,10 @@ const DRUG_DATA = [
       {
         "kombinasyon": "Sefepim + Amikasin veya Levofloksasin",
         "not": "DTR Pseudomonas VAP ve nekrotizan nozokomiyal pnömonide ilk 3-5 gün erken bakteriyel yükü azaltır."
+      },
+      {
+        "kombinasyon": "Vankomisin + Sefepim",
+        "not": "Ampirik vankomisin + piperasilin-tazobaktam kombinasyonuna göre AKI riski daha düşüktür; renal güvenlik açısından alternatif."
       }
     ],
     "markalar": [
@@ -77,6 +81,33 @@ const DRUG_DATA = [
     ],
     "kapsama": [
       "Gr+",
+      "Gr-",
+      "Aerob"
+    ]
+  },
+  {
+    "slug": "seftazidim",
+    "kategori": "BETA-LAKTAMLAR",
+    "kategoriKisa": "Beta-Laktamlar",
+    "kategoriRenk": "blue",
+    "grup": "3. Kuşak Sefalosporin (Antipseudomonal)",
+    "etken": "Seftazidim",
+    "pazar": "Fortum, Zidim, İesetum",
+    "ozellikler": "3. kuşak antipseudomonal sefalosporin (avibaktamsız). P. aeruginosa ve aerobik Gram-negatif basillere (E. coli, Klebsiella, Proteus) etkilidir. Gram-pozitif etkinliği çok zayıftır (MSSA ve S. pneumoniae). Zamana bağımlı bakterisidal etki gösterir; serbest ilaç doz aralığının >%50'sinde MIC üzerinde kalmalıdır.",
+    "endikasyon": "Kültürde duyarlı P. aeruginosa enfeksiyonları (pnömoni, ürosepsis, bakteriyemi) ve sefalosporin bazlı hedefe yönelik tedavi. Ampirik HAP/VAP monoterapisinde seftazidim yerine sefepim veya meropenem tercih edilir.",
+    "standartDoz": "Standart: 1-2 g q8h IV (30-60 dakika veya 2-3 saatlik uzatılmış infüzyon)\nMenenjit / SSS: 2 g q8h IV (meningeal doz)",
+    "renalDoz": "CrCl 31-50: 1 g q12h IV.\nCrCl 16-30: 1 g q24h IV.\nCrCl 6-15: 500 mg q24h IV.\nCrCl <5: 500 mg q48h IV.\nCRRT: 2 g q8h-q12h IV.",
+    "sinirlamalar": "Sıfır anaerop aktivitesi vardır; intraabdominal enfeksiyonda mutlaka metronidazol eklenmelidir. Kromozomal AmpC (Enterobacter, Serratia, Citrobacter) ile hızla hidrolize olur; antibiyogramda başlangıçta duyarlı görünse de monoterapide hızla direnç gelişir. ESBL ve karbapenemazlar (KPC, NDM, OXA-48) tarafından etkisizleştirilir. MRSA, Enterococcus, Acinetobacter baumannii ve Stenotrophomonas maltophilia doğal dirençlidir.",
+    "yanEtki": "Yüksek direnç potansiyeli: P. aeruginosa direncini en hızlı indükleyen ve solunum yollarında MRSA kolonizasyonunu artırma riski en yüksek antibiyotiklerden biridir.",
+    "nefroSeviye": "Düşük",
+    "nefroNot": "Aminoglikozit ve potent diüretiklerle (furosemid) birlikte kullanımda nefrotoksisite artar",
+    "eliminasyon": "Böbreklerle değişmeden atılır; hemodiyaliz sırasında serum yarı ömrü 3-5 saattir.",
+    "markalar": [
+      "Fortum",
+      "Zidim",
+      "Iesetum"
+    ],
+    "kapsama": [
       "Gr-",
       "Aerob"
     ]
